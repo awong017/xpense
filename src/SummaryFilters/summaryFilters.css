@@ -1,0 +1,27 @@
+.filter {
+    margin-left: 10px;
+}
+
+.search {
+    margin-left: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid  lightblue;
+    background-color: lightblue;
+    color: white;
+}
+
+.search:hover {
+    cursor: pointer;
+    border: 1px solid  #82E0AA;
+    background-color: #82E0AA;
+    transition: 0.1s;
+}
+
+input {
+    border-radius: 5px;
+}
+
+select {
+    border-radius: 5px;
+}

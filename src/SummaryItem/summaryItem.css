@@ -1,0 +1,20 @@
+.summary-item {
+    display: flex;
+    justify-content: space-around;
+    font-size: 75%;
+    text-align: left;
+}
+
+.delete-button {
+    color: white;
+    background: grey;
+    border: grey;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    background: red;
+    transition: 0.1s;
+}

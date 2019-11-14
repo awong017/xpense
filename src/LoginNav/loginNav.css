@@ -1,0 +1,14 @@
+.login-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #82E0AA;
+  } 
+
+.login-nav-ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+}

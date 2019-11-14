@@ -1,0 +1,89 @@
+.add-expense {
+    margin-top: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px lightskyblue solid;
+    background-color: lightskyblue;
+    color: white;
+    border-radius: 50px;
+    padding: 20px;
+    width: 25%;
+}
+
+.add-expense-legend {
+    text-align: center;
+}
+
+.add-expense-field {
+    border: lightskyblue;
+    background-color: lightgrey;
+    padding: 5px 5px;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 20px;
+    width: 75%;
+}
+
+.category-section {
+    border-top: white dotted 5px;
+}
+
+.add-expense-category {
+    margin-top: 0px;
+    margin-left: 20px;
+    background-color: lightgrey;
+    padding: 5px 5px;
+    font-size: 14px;
+    color: white;
+}
+
+.add-expense-text {
+    display: inline;
+    margin-left: 20px;
+}
+
+.category-input {
+    border: lightskyblue;
+    background-color: lightgrey;
+    padding: 5px 5px;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 75%;
+}
+
+.category-menu {
+    margin-left: 0px;
+}
+
+.submit-new-expense {
+    margin-top: 25px;
+    padding: 5px 10px;
+    color: white;
+    background-color: lightblue;
+    border: lightblue;
+    font-size: 18px;
+}
+
+.submit-new-expense:hover {
+    cursor: pointer;
+    border: #82E0AA;
+    background-color: #82E0AA;
+    transition: 0.1s;
+}
+
+.add-expense-label {
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+.add {
+    text-align: center;
+    margin-top: 50px;
+}
+

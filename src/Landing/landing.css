@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .landing {
+    margin-top: 150px;
+    text-align: center;
+  }
+
+  body {
+    font-family: "Open Sans",
+    sans-serif; 
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  
+  .landing-section {
+    min-height: 200px;
+    padding: 6% 0;
+    background-color: #bbb;
+  }
+  
+  .landing-section:nth-child(even) {
+    background-color: #ddd;
+  }

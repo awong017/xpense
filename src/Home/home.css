@@ -1,0 +1,23 @@
+.welcome {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.dollars-spent {
+    text-align: left;
+    margin-left: 100px;
+    margin-bottom: 200px;
+}
+
+.budget-dollars {
+    text-align: left;
+    margin-left: 100px;
+}
+
+.home {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}

@@ -1,0 +1,59 @@
+.login-form {
+    margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    border: lightsalmon;
+    background: lightsalmon;
+    border-radius: 25px;
+    width: 25%;
+    padding: 20px;
+}
+
+legend {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-label {
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+.login-input {
+    border: lightsalmon;
+    background: salmon;
+    padding: 5px 5px;
+    font-size: 14px;
+    color: white;
+    margin-left: 20px;
+    width: 75%;
+}
+
+.error {
+    margin-left: 20px;
+    color: red;
+}
+
+.sign-in {
+    text-align: center;
+}
+
+.login-button {
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    background-color: lightpink;
+    border: lightpink;
+    font-size: 18px;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    background: white;
+    color: black;
+    transition: 0.3s; 
+}

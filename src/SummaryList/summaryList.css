@@ -1,0 +1,11 @@
+.summary-expenses {
+    margin-top: 50px;
+    background-color: lightskyblue;
+    color: white;
+}
+
+.summary-list {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;  
+}

@@ -1,0 +1,17 @@
+.add-expense-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #82E0AA;
+  } 
+
+.add-expense-nav-ul {
+    list-style: none;
+    text-align: right;
+}
+
+li {
+    display: inline;
+    margin-right: 25px;
+}

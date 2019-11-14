@@ -1,0 +1,136 @@
+.profile {
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px purple solid;
+    background-color: purple;
+    color: white;
+    border-radius: 50px;
+    padding: 20px;
+    width: 25%;
+}
+
+.profile-legend {
+    text-align: center;
+}
+
+.profile-label {
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+.user-info {
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+.profile-input {
+    border: purple;
+    background-color: lightgray;
+    padding: 5px 5px;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 20px;
+    width: 75%;
+}
+
+.dollar-sign {
+    float: left;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+.dollar-input {
+    border: purple;
+    background-color: lightgray;
+    color: white;
+    padding: 5px 5px;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    width: 25%;
+}
+
+.goals-section {
+    border-top: lightskyblue dotted 5px;
+    padding: 0;
+}
+
+.goals-label {
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+.goal {
+    margin-top: 10px;
+}
+
+.goal-dollar-sign {
+    display: inline;
+    margin-left: 40px;
+}
+
+
+.goal-input {
+    border: purple;
+    background-color: lightgray;
+    padding: 5px 5px;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 10px;
+    width: 25%;
+}
+
+.goal-text-1 {
+    margin-left: 20px;
+}
+
+.goal-text-2 {
+    display: inline;
+    margin-left: 20px;
+}
+
+.select-category {
+    margin-top: 0px;
+    margin-left: 20px;
+    background-color: lightgrey;
+    padding: 5px 5px;
+    font-size: 14px;
+    color: white;
+}
+
+.category-menu {
+    display: inline;
+}
+
+.save-button {
+    margin-top: 25px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: plum;
+    border: purple;
+    font-size: 18px;
+}
+
+.save-button:hover {
+    cursor: pointer;
+    border: #82E0AA;
+    background-color: pink;
+    transition: 0.1s;
+}
+
+.save {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.error {
+    color: red;
+}
