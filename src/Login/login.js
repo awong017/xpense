@@ -20,7 +20,7 @@ class Login extends Component {
   render() {
 
     const { username, password } = this.state;
-    const { userNameError, passwordError, handleSignUp } = this.context;
+    const { userNameError, passwordError, handleSignUp, handleLogin } = this.context;
 
     return (
       <div>
@@ -41,7 +41,7 @@ class Login extends Component {
             </div>
 
             <div className="sign-in">
-              <button type="button" className="login-button" onClick={(e) => handleSignUp(e, username, password)}>Sign Up</button> | <button type="button" className="login-button" onClick={() => console.log(this.context)}>Login</button>
+              <button type="button" className="login-button" onClick={(e) => handleSignUp(e, username, password)}>Sign Up</button> | <button type="button" className="login-button" onClick={(e) => handleLogin(e, username, password)}>Login</button>
             </div>
         </form>
       </div>

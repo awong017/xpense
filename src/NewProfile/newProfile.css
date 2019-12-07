@@ -91,6 +91,11 @@
     margin-left: 20px;
 }
 
+.goal-category-input {
+    margin-left: 20px;
+    width: 150px;
+}
+
 .select-category {
     margin-top: 0px;
     margin-left: 20px;

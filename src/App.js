@@ -8,81 +8,22 @@ import AddExpense from './AddExpense/addExpense';
 import Profile from './Profile/profile';
 import NewProfile from './NewProfile/newProfile';
 import uuid from 'uuid/v4';
-import ApiContext from './ApiContext'
+import ApiContext from './ApiContext';
+import config from './config';
 
 class App extends Component {
 
   state = {
-    users: [
-      {
-        id: "user-ID",
-        userName: "awong017",
-        password: "user-password"
-      }
-    ],
+    users: [],
     userNameError: "",
     passwordError: "",
-    currentUser: {
-      id: "user-ID",
-      userName: "awong017",
-      password: "user-password"
-    },
-    expenses: [
-      {
-      id: '1',
-      date: 1572817683000,
-      name: 'Aburi Sushi',
-      description: 'aaa',
-      cost: parseFloat('50'),
-      category: 'Food',
-      userID: "user-ID"
-    },
-    {
-      id: '2',
-      date: 1572718583000,
-      name: 'Dim Sum',
-      description: 'aaa',
-      cost: parseFloat('34.34'),
-      category: 'Food',
-      userID: "user-ID"
-    },
-    {
-      id: '3',
-      date: 1572618483000,
-      name: 'Gas',
-      description: 'aaa', 
-      cost: parseFloat('78.12'),
-      category: 'Gas',
-      userID: "user-ID"
-    },
-    {
-      id: '4',
-      date: 1572518383000,
-      name: 'Laptop',
-      description: 'aaa',
-      cost: parseFloat('500.33'),
-      category: 'Electronics',
-      userID: "user-ID"
-    },
-
-    ],
+    currentUser: {},
+    expenses: [],
     nameError: "",
     descriptionError: "",
     costError: "",
     categoryError: "",
-    categories: [
-      {
-        id: '11',
-        name:'Food'
-      },
-      {
-        id: '12',
-        name:'Gas'
-      },
-      {
-        id: '13',
-        name: 'Electronics'
-      }],
+    categories: [],
     currentCategory: "All",
     filteredExpenses: [],
     budget: {},
@@ -90,6 +31,123 @@ class App extends Component {
     budgetError: "",
     goalError:""
   };
+
+  // Method for logging out
+
+  handleLogout = () => {
+
+    this.setState({
+      currentUser: {},
+      expenses: [],
+      budget: {},
+      goals: []
+    })
+
+  }
+
+  // Method for logging in as an existing user
+
+  handleLogin = (event, username, password) => {
+
+    const { users } = this.state
+
+    event.preventDefault();
+
+    const checkUserName = users.some((user) => {
+      return user.userName === username
+    })
+
+    const verifyUser = users.find((user) => {
+      return user.userName === username
+    })
+
+
+    if(!username) {
+      this.setState({
+        userNameError: "Please enter a user name"
+      })
+    }
+
+    else if(!password) {
+      this.setState({
+        passwordError: "Please enter a valid password"
+      })
+    }
+
+    else if(checkUserName === false) {
+      this.setState({
+        userNameError: "Unrecognized user name"
+      })
+    }
+
+    else if(checkUserName === true && (verifyUser.password !== password)) {
+      this.setState({
+        passwordError: "Incorrect password"
+      })
+    }
+
+    else {
+      this.setState({
+        userNameError: "",
+        passwordError: ""
+      })
+
+      const loggedUser = users.find((user) => {
+        return user.userName === username;
+      })
+
+      const user_id = loggedUser.id
+
+      fetch(`${config.API_ENDPOINT}/api/expenses/${user_id}`)
+        .then((res) => res.json())
+        .then((resJson) => {
+          const parseDate = (expense) => ({
+            id: expense.id,
+            date: parseInt(expense.date),
+            name: expense.name,
+            description: expense.description,
+            cost: expense.cost,
+            category: expense.category,
+            userID: expense.userID
+          })
+          const serverExpenses = resJson.map((expense) => {
+            return parseDate(expense)
+          })
+          this.setState({
+            expenses: serverExpenses
+          })
+        })
+
+      fetch(`${config.API_ENDPOINT}/api/categories/${user_id}`)
+        .then((res) => res.json())
+        .then((resJson) => {
+          const serverCategories = resJson.map((sCategory) => {
+            const newServerCategories = {
+              id: uuid(),
+              name: sCategory.category,
+            }
+            return newServerCategories;
+          })
+          this.setState({
+            categories: serverCategories
+          })
+        })
+
+      fetch(`${config.API_ENDPOINT}/api/budgets/${user_id}`)
+        .then((res) => res.json())
+        .then((resJson) => {
+          this.setState({
+            budget: resJson
+          })
+        })
+
+      this.setState({
+        currentUser: loggedUser
+      })
+
+      this.props.history.push('/home')
+    }
+  }
 
   // Method for signing up as a new user
 
@@ -364,7 +422,11 @@ class App extends Component {
     }
   }
 
+  // Method for adding new expenses
+
   handleAddExpense = (event, name, description, cost, category) => {
+
+    const {expenses, goals } = this.state;
 
     event.preventDefault();
 
@@ -420,6 +482,37 @@ class App extends Component {
 
       this.addCategory(category);
 
+      const checkBudgetCategory = goals.some((goal) => {
+        return goal.category.toLowerCase() === category.toLowerCase()
+      })
+
+      if(checkBudgetCategory === true) {
+        const findBudgetCategory = goals.find((goal) => {
+          return goal.category.toLowerCase() === category.toLowerCase()
+        })
+
+        const filteredExpenses = expenses.filter((expense) => {
+          return expense.category.toLowerCase() === category.toLowerCase()
+        })
+        const filteredExpenseCosts = filteredExpenses.map((expense) => {
+          return expense.cost
+        })
+        const total = filteredExpenseCosts.reduce((accumulator, currentValue) => {
+          return accumulator + currentValue
+        }, 0)
+
+        const reformattedTotal = (Math.round(total*100)/100).toFixed(2);
+        
+        if(findBudgetCategory.amount >= reformattedTotal) {
+          const categoryTotal = findBudgetCategory.amount - reformattedTotal
+          const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
+        }
+        else
+        {
+          const categoryTotal = reformattedTotal - findBudgetCategory.amount
+          const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
+        }
+      }
       this.props.history.push('/summary');
     }
   }
@@ -438,6 +531,16 @@ class App extends Component {
     );
   }
 
+  componentDidMount() {
+  
+    fetch(`${config.API_ENDPOINT}/api/users`)
+      .then((res) => res.json())
+      .then((resJson) => this.setState({
+        users: resJson
+      })
+    )
+}
+
   render() {
 
     const value={
@@ -446,6 +549,7 @@ class App extends Component {
       passwordError: this.state.passwordError,
       currentUser: this.state.currentUser,
       handleSignUp: this.handleSignUp,
+      handleLogin: this.handleLogin,
       expenses: this.state.expenses,
       nameError: this.state.nameError,
       descriptionError: this.state.descriptionError,
@@ -459,9 +563,12 @@ class App extends Component {
       handleSearch: this.handleSearch,
       filterDate: this.filterDate,
       handleDelete: this.handleDelete,
+      budget: this.state.budget,
+      goals: this.state.goals,
       budgetError: this.state.budgetError,
       goalError: this.state.goalError,
-      handleSave: this.handleSave
+      handleSave: this.handleSave,
+      handleLogout: this.handleLogout
     }
 
     return (

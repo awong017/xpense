@@ -52,11 +52,11 @@
     text-align: left;
     margin-left: 20px;
     margin-bottom: 10px;
-    width: 75%;
+    width: 200px;
 }
 
 .category-menu {
-    margin-left: 0px;
+    margin-left: 10px;
 }
 
 .submit-new-expense {

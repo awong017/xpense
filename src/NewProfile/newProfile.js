@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AddExpenseCategory from '../AddExpenseCategory/addExpenseCategory';
 import NewProfileNav from '../NewProfileNav/newProfileNav';
 import './newProfile.css';
 import ApiContext from '../ApiContext';
@@ -24,7 +23,7 @@ class NewProfile extends Component {
 
     render() {
 
-        const { categories, budgetError, goalError, handleSave } = this.context;
+        const { budgetError, goalError, handleSave } = this.context;
         const { budget, goal1, category1, goal2, category2 } = this.state;
 
         return (
@@ -34,7 +33,7 @@ class NewProfile extends Component {
                     <form className="new-profile-form" onSubmit={(e) => handleSave(e, budget, goal1, category1, goal2, category2)}>
                         <legend className="new-profile-legend"><h2>Before we begin, lets set some goals</h2></legend>
                         <div>
-                            <label className="new-profile-label">Budget: </label>
+                            <label className="new-profile-label">Weekly Budget: </label>
                             <p className="dollar-sign">$</p>
                             <input type="text" className="dollar-input" onChange={(e) => this.updateProfile(e.target.value, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
                             <div className="error">{budgetError}</div>
@@ -46,15 +45,7 @@ class NewProfile extends Component {
                                 <p className="goal-dollar-sign">$</p>
                                 <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, e.target.value, category1, goal2, category2)} placeholder="Amount in USD"></input>
                                 <p className="goal-text-2">on</p>
-                                <div className="category-menu">
-                                    <select className="select-category" onChange={(e) => this.updateProfile(budget, goal1, e.target.value, goal2, category2)}>
-                                        <option defaultValue>--Select Category--</option>
-                                        {categories.map(category =>
-                                            <AddExpenseCategory
-                                                category={category.name}/>
-                                            )}
-                                    </select>
-                                </div>
+                                <input type="text" className="goal-input goal-category-input" onChange={(e) => this.updateProfile(budget, goal1, e.target.value, goal2, category2)} placeholder="Create Category"></input>
                                 <div className="error">{goalError}</div>
                             </div>
                             <div className="goal">
@@ -62,15 +53,7 @@ class NewProfile extends Component {
                                 <p className="goal-dollar-sign">$</p>
                                 <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, goal1, category1, e.target.value, category2)} placeholder="Amount in USD"></input>
                                 <p className="goal-text-2">on</p>
-                                <div className="category-menu">
-                                    <select className="select-category" onChange={(e) => this.updateProfile(budget, goal1, category1, goal2, e.target.value)}>
-                                        <option defaultValue>--Select Category--</option>
-                                        {categories.map(category =>
-                                            <AddExpenseCategory
-                                                category={category.name}/>
-                                            )}
-                                    </select>
-                                </div>
+                                <input type="text" className="goal-input goal-category-input" onChange={(e) => this.updateProfile(budget, goal1, category1, goal2, e.target.value)} placeholder="Create Category"></input>
                                 <div className="error">{goalError}</div>
                             </div>
                         </div>

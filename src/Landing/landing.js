@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
 import LandingNav from '../LandingNav/landingNav';
+import ApiContext from '../ApiContext';
 import './landing.css';
 
 class Landing extends Component {
+
+    static contextType = ApiContext;
+
     render() {
         return (
             <div>
                 <LandingNav />
-                <div class="landing">
+                <div className="landing">
                     <h1>Xpense</h1>
                     <p>Budgeting made simple</p>
-
+                    
                     <section className="landing-section">
                         <h2>How It Works</h2>
                         <p>Xpense is an app where you will be able to keep track of your daily expenses    Xpense will bring awareness to a users spending habits , resulting 
