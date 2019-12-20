@@ -14,16 +14,81 @@ import config from './config';
 class App extends Component {
 
   state = {
-    users: [],
+    users: [
+      {
+        id: "user-ID",
+        userName: "awong017",
+        password: "asdfasdf1"
+      },
+      {
+        id: "user-ID2",
+        userName: "clara94",
+        password: "user-password"
+      }
+    ],
     userNameError: "",
     passwordError: "",
-    currentUser: {},
-    expenses: [],
+    currentUser: {
+      id: "user-ID",
+      userName: "awong017",
+      password: "user-password"
+    },
+    expenses: [
+      {
+      id: '1',
+      date: 1572817683000,
+      name: 'Aburi Sushi',
+      description: 'aaa',
+      cost: parseFloat('50'),
+      category: 'Food',
+      userID: "user-ID"
+    },
+    {
+      id: '2',
+      date: 1572718583000,
+      name: 'Dim Sum',
+      description: 'aaa',
+      cost: parseFloat('34.34'),
+      category: 'Food',
+      userID: "user-ID"
+    },
+    {
+      id: '3',
+      date: 1572618483000,
+      name: 'Gas',
+      description: 'aaa', 
+      cost: parseFloat('78.12'),
+      category: 'Gas',
+      userID: "user-ID"
+    },
+    {
+      id: '4',
+      date: 1572518383000,
+      name: 'Laptop',
+      description: 'aaa',
+      cost: parseFloat('500.33'),
+      category: 'Electronics',
+      userID: "user-ID"
+    },
+
+    ],
     nameError: "",
     descriptionError: "",
     costError: "",
     categoryError: "",
-    categories: [],
+    categories: [
+      {
+        id: '11',
+        name:'Food'
+      },
+      {
+        id: '12',
+        name:'Gas'
+      },
+      {
+        id: '13',
+        name: 'Electronics'
+      }],
     currentCategory: "All",
     filteredExpenses: [],
     budget: {},

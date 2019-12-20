@@ -36,13 +36,31 @@
     width: 75%;
 }
 
+.budget-text {
+    display: inline;
+    margin-left: 20px;
+}
+
+.budget-time-frame {
+    display: inline;
+    margin-left: 20px;
+    background-color: lightgrey;
+    padding: 5px 5px;
+    font-size: 14px;
+    color: white;
+}
+
+.time-frame-menu {
+    display: inline;
+}
+
 .dollar-sign {
     float: left;
     margin-top: 0px;
     margin-left: 20px;
 }
 
-.dollar-input {
+.budget-input {
     border: purple;
     background-color: lightgray;
     color: white;

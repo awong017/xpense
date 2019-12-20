@@ -44,8 +44,18 @@ class Profile extends Component {
                         <div>
                             <label className="profile-label">Budget: </label>
                             <p className="dollar-sign">$</p>
-                            <input type="text" className="dollar-input" onChange={(e) => this.updateProfile(e.target.value, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
                             <div className="error">{budgetError}</div>
+                            <p className = "budget-text">per</p>
+                            <div className = "time-frame-menu">
+                                <select className = "budget-time-frame">
+                                    <option>--Select Time--</option>
+                                    <option>Day</option>
+                                    <option>Week</option>
+                                    <option>Month</option>
+                                    <option>Year</option>
+                                </select>
+                            </div>
                         </div>
                         <div className="goals-section">
                             <label className="goals-label">Goals: </label>
