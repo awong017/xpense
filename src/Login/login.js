@@ -36,7 +36,7 @@ class Login extends Component {
 
             <div>
               <label className="login-label">Password: </label>
-              <input type="text" className="login-input" onChange={e => this.updateUserInfo(username, e.target.value)}></input>
+              <input type="password" className="login-input" onChange={e => this.updateUserInfo(username, e.target.value)}></input>
               <div className="error">{passwordError}</div>
             </div>
 

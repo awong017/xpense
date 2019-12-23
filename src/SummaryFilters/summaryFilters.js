@@ -43,7 +43,7 @@ class SummaryFilters extends Component {
                 <button type="button" className="search" onClick={() => handleSearch(search)}>Go</button>
                 <DateFilter/>
 
-                <button onClick={() => console.log("Goals: ", this.context.goals)}>Console Log</button>
+                <button onClick={() => console.log("Current User: ", this.context.currentUser)}>Console Log</button>
             </div>
         );
     }

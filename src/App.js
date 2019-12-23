@@ -350,9 +350,23 @@ class App extends Component {
           categories: remainingCategories
         })
       }
+
+      const url = `${config.API_ENDPOINT}/api/expenses/${id}`;
+      const options ={
+          method: 'DELETE'
+      };
+
+      fetch(url, options)
+      .then(res => {
+        if(!res.ok) {
+            throw new Error('Something went wrong, please try again later');
+        }
+        return res.json();
+      })
     }
     else
     {
+
       const remainingExpenses = expenses.filter((expense) => {
         return expense.id !== id
       })
@@ -382,6 +396,19 @@ class App extends Component {
           categories: remainingCategories
         })
       }
+
+      const url = `${config.API_ENDPOINT}/api/expenses/${id}`;
+      const options ={
+          method: 'DELETE'
+      };
+
+      fetch(url, options)
+      .then(res => {
+        if(!res.ok) {
+            throw new Error('Something went wrong, please try again later');
+        }
+        return res.json();
+      })
     }
   }
 
@@ -538,12 +565,38 @@ class App extends Component {
         description: description,
         cost: parseFloat(newCost),
         category: category,
-        userID: this.state.currentUser.userID
+        userID: this.state.currentUser.id
       }
 
       this.setState((prevState) => {
         prevState.expenses.push(newExpense)
       })
+
+      const postExpense = {
+        id: uuid(),
+        date: Date.now(),
+        name: name,
+        description: description,
+        cost: parseFloat(newCost),
+        category: category,
+        userid: this.state.currentUser.id
+      }
+      const url = config.API_ENDPOINT + '/api/expenses';
+      const options ={
+          method: 'POST',
+          body: JSON.stringify(postExpense),
+          headers: {
+              "Content-Type": "application/json"
+          }
+      };
+
+      fetch(url, options)
+          .then(res => {
+              if(!res.ok) {
+                  throw new Error('Something went wrong, please try again later');
+              }
+              return res.json();
+          })
 
       this.addCategory(category);
 

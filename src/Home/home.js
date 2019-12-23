@@ -18,10 +18,6 @@ class Home extends Component {
         }
     }
 
-    componentWillMount() {
-        
-    }
-
     render() {
 
         const { currentUser, expenses, budget, categories, goals } = this.context;
@@ -75,11 +71,11 @@ class Home extends Component {
                         You have spent ${reformattedTotal} this week.
                     </section>
                     <section className="budget-dollars">
-                        {this.budgetStanding(reformattedTotal, budget)}
+                        {this.budgetStanding(parseInt(reformattedTotal), budget)}
                     </section>
                 </div>
-                <button onClick={() => console.log(this.context)}>Context</button>
-                <button onClick={() => console.log(budget)}>budget</button>
+                <button onClick={() => console.log(this.context.categories)}>reformatted total</button>
+                <button onClick={() => console.log(budget[0].budget)}>budget</button>
                 <ExpenseChart />
             </div>
         )
