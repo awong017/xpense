@@ -39,7 +39,7 @@ class Profile extends Component {
                         </div>
                         <div>
                             <label className="profile-label">Password: </label>
-                            <p className="user-info">{currentUser.password}</p>
+                            <p className="user-info" type="password">{currentUser.password}</p>
                         </div>
                         <div>
                             <label className="profile-label">Budget: </label>

@@ -42,8 +42,6 @@ class SummaryFilters extends Component {
                 <input type="text" onChange={(e) => this.updateSearch(e.target.value, search)}></input>
                 <button type="button" className="search" onClick={() => handleSearch(search)}>Go</button>
                 <DateFilter/>
-
-                <button onClick={() => console.log("Current User: ", this.context.currentUser)}>Console Log</button>
             </div>
         );
     }

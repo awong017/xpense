@@ -14,84 +14,24 @@ import config from './config';
 class App extends Component {
 
   state = {
-    users: [
-      {
-        id: "user-ID",
-        userName: "awong017",
-        password: "asdfasdf1"
-      },
-      {
-        id: "user-ID2",
-        userName: "clara94",
-        password: "user-password"
-      }
-    ],
+    users: [],
     userNameError: "",
     passwordError: "",
-    currentUser: {
-      id: "user-ID",
-      userName: "awong017",
-      password: "user-password"
-    },
-    expenses: [
-      {
-      id: '1',
-      date: 1572817683000,
-      name: 'Aburi Sushi',
-      description: 'aaa',
-      cost: parseFloat('50'),
-      category: 'Food',
-      userID: "user-ID"
-    },
-    {
-      id: '2',
-      date: 1572718583000,
-      name: 'Dim Sum',
-      description: 'aaa',
-      cost: parseFloat('34.34'),
-      category: 'Food',
-      userID: "user-ID"
-    },
-    {
-      id: '3',
-      date: 1572618483000,
-      name: 'Gas',
-      description: 'aaa', 
-      cost: parseFloat('78.12'),
-      category: 'Gas',
-      userID: "user-ID"
-    },
-    {
-      id: '4',
-      date: 1572518383000,
-      name: 'Laptop',
-      description: 'aaa',
-      cost: parseFloat('500.33'),
-      category: 'Electronics',
-      userID: "user-ID"
-    },
-
-    ],
+    currentUser: {},
+    expenses: [],
     nameError: "",
     descriptionError: "",
     costError: "",
     categoryError: "",
-    categories: [
-      {
-        id: '11',
-        name:'Food'
-      },
-      {
-        id: '12',
-        name:'Gas'
-      },
-      {
-        id: '13',
-        name: 'Electronics'
-      }],
+    categories: [],
     currentCategory: "All",
     filteredExpenses: [],
-    budget: {},
+    budget: {
+      id: "0",
+      budget: 0,
+      userID: "user",
+      timeFrame: "day"
+    },
     goals: [],
     budgetError: "",
     goalError:""
@@ -104,8 +44,10 @@ class App extends Component {
     this.setState({
       currentUser: {},
       expenses: [],
-      budget: {},
-      goals: []
+      categories: [],
+      currentCategory: "All",
+      filteredExpenses: [],
+      goals: [],
     })
 
   }
@@ -202,7 +144,13 @@ class App extends Component {
         .then((res) => res.json())
         .then((resJson) => {
           this.setState({
-            budget: resJson
+            budget: 
+            {
+              id: resJson[0].id,
+              budget: resJson[0].budget,
+              userID: resJson[0].userid,
+              timeFrame: resJson[0].timeframe
+            }
           })
         })
 
@@ -265,13 +213,36 @@ class App extends Component {
         currentUser: newUser
       })
 
+      const postUser = {
+        id: newUser.id,
+        username: username,
+        password: password
+      }
+
+      const url = config.API_ENDPOINT + '/api/users';
+      const options ={
+          method: 'POST',
+          body: JSON.stringify(postUser),
+          headers: {
+              "Content-Type": "application/json"
+          }
+      };
+
+      fetch(url, options)
+          .then(res => {
+              if(!res.ok) {
+                  throw new Error('Something went wrong, please try again later');
+              }
+              return res.json();
+          })
+
       this.props.history.push('/NewProfile')
     }
   }
 
   // Method for saving profiles
 
-  handleSave = (event, budgetInput, goal1, category1, goal2, category2) => {
+  handleSave = (event, budgetInput, timeFrame, goal1, category1, goal2, category2) => {
 
     event.preventDefault();
 
@@ -281,19 +252,19 @@ class App extends Component {
       this.setState({
         budgetError: "Please input a desired budget"
       })
-      console.log(this.state.budgetError);
     }
     else if(!goal1 || !category1 || !goal2 || !category2) {
       this.setState({
         goalError: "Please input desired amount and select category"
       })
-      console.log(this.state.goalError);
     }
     else
     {
       const newBudget = {
+        id: uuid(),
         budget: budgetInput,
-        userID: currentUser.userID
+        userID: currentUser.userID,
+        timeFrame: timeFrame
       }
 
       const newGoals = [
@@ -317,6 +288,32 @@ class App extends Component {
         budgetError: "",
         goalError: ""
       })
+
+      const postBudget = {
+        id: newBudget.id,
+        budget: parseFloat(budgetInput),
+        userid: currentUser.id,
+        timeframe: timeFrame
+      }
+
+      console.log('Post Budget: ', postBudget)
+
+      const url = config.API_ENDPOINT + '/api/budgets';
+      const options ={
+          method: 'POST',
+          body: JSON.stringify(postBudget),
+          headers: {
+              "Content-Type": "application/json"
+          }
+      };
+
+      fetch(url, options)
+          .then(res => {
+              if(!res.ok) {
+                  throw new Error('Something went wrong, please try again later');
+              }
+              return res.json();
+          })
 
       this.props.history.push('/home')
     }

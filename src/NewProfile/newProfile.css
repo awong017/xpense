@@ -31,6 +31,15 @@
     width: 75%;
 }
 
+.budget-timeframe {
+    margin-top: 0px;
+    margin-left: 20px;
+    background-color: lightgrey;
+    padding: 5px 5px;
+    font-size: 14px;
+    color: white;
+}
+
 .dollar-sign {
     float: left;
     margin-top: 0px;
@@ -131,3 +140,8 @@
     margin-top: 50px;
 }
 
+@media screen and (max-width: 960px) {
+    .new-profile {
+        width: 50%;
+    }
+}

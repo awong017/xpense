@@ -57,3 +57,9 @@ legend {
     color: black;
     transition: 0.3s; 
 }
+
+@media screen and (max-width: 960px) {
+    .login-form {
+        width: 50%;
+    }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewProfileNav from '../NewProfileNav/newProfileNav';
+import uuid from 'uuid/v4';
 import './newProfile.css';
 import ApiContext from '../ApiContext';
 
@@ -11,31 +12,41 @@ class NewProfile extends Component {
         error: null
     }
 
-    updateProfile = (budget, goal1, category1, goal2, category2) => {
+    updateProfile = (budget, timeFrame, goal1, category1, goal2, category2) => {
         this.setState({
             budget: budget,
+            timeFrame: timeFrame,
             goal1: goal1,
             category1: category1,
             goal2: goal2,
             category2: category2
         })
+        console.log(this.state);
     }
 
     render() {
 
         const { budgetError, goalError, handleSave } = this.context;
-        const { budget, goal1, category1, goal2, category2 } = this.state;
+        const { budget, timeFrame, goal1, category1, goal2, category2 } = this.state;
 
         return (
             <div>
                 <NewProfileNav />
                 <div className="new-profile">
-                    <form className="new-profile-form" onSubmit={(e) => handleSave(e, budget, goal1, category1, goal2, category2)}>
-                        <legend className="new-profile-legend"><h2>Before we begin, lets set some goals</h2></legend>
+                    <form className="new-profile-form" onSubmit={(e) => handleSave(e, budget, timeFrame, goal1, category1, goal2, category2)}>
+                        <legend className="new-profile-legend"><h2>To get started, lets set some goals!</h2></legend>
                         <div>
-                            <label className="new-profile-label">Weekly Budget: </label>
+                            <label className="new-profile-label">Budget: </label>
                             <p className="dollar-sign">$</p>
-                            <input type="text" className="dollar-input" onChange={(e) => this.updateProfile(e.target.value, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <input type="text" className="dollar-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <p className="budget-text">per</p>
+                            <select className="budget-timeframe"  onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
+                                <option defaultValue>--Select Time Frame--</option>
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                                <option value="year">Year</option>
+                            </select> 
                             <div className="error">{budgetError}</div>
                         </div>
                         <div className="goals-section">
@@ -43,17 +54,17 @@ class NewProfile extends Component {
                             <div className="goal">
                                 <p className="goal-text-1">1) I would like to spend less than</p>
                                 <p className="goal-dollar-sign">$</p>
-                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, e.target.value, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, e.target.value, category1, goal2, category2)} placeholder="Amount in USD"></input>
                                 <p className="goal-text-2">on</p>
-                                <input type="text" className="goal-input goal-category-input" onChange={(e) => this.updateProfile(budget, goal1, e.target.value, goal2, category2)} placeholder="Create Category"></input>
+                                <input type="text" className="goal-input goal-category-input" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, e.target.value, goal2, category2)} placeholder="Create Category"></input>
                                 <div className="error">{goalError}</div>
                             </div>
                             <div className="goal">
                                 <p className="goal-text-1">2) I would like to spend less than</p>
                                 <p className="goal-dollar-sign">$</p>
-                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, goal1, category1, e.target.value, category2)} placeholder="Amount in USD"></input>
+                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, e.target.value, category2)} placeholder="Amount in USD"></input>
                                 <p className="goal-text-2">on</p>
-                                <input type="text" className="goal-input goal-category-input" onChange={(e) => this.updateProfile(budget, goal1, category1, goal2, e.target.value)} placeholder="Create Category"></input>
+                                <input type="text" className="goal-input goal-category-input" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, goal2, e.target.value)} placeholder="Create Category"></input>
                                 <div className="error">{goalError}</div>
                             </div>
                         </div>

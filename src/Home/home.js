@@ -8,13 +8,50 @@ class Home extends Component {
 
     static contextType = ApiContext;
 
-    budgetStanding = (spent, budget) => {
-        if(spent<budget) {
-            return `Thats $${budget-spent} under your budget! Keep it up!`
+    amountSpent = (timeFrame, spent) => {
+        if(timeFrame.toLowerCase() === 'day') {
+            return `You have spent ${spent} today.`
         }
         else
         {
-            return `Thats $${budget-spent} over your budget! Watch out!`
+            return `You have spent ${spent} this ${timeFrame.toLowerCase()}.`
+        }
+    }
+
+    budgetStanding = (spent, budget) => {
+        if(spent<budget) {
+            return `Thats $${(budget-spent).toFixed(2)} under your budget! Keep it up!`
+        }
+        else
+        {
+            return `Thats $${Math.abs(budget-spent).toFixed(2)} over your budget! Watch out!`
+        }
+    }
+
+    expensesTotal = (timeFrame, expenses) => {
+        if(timeFrame.toLowerCase() === 'day') {
+            const filteredItems = expenses.filter((expense) => {
+                return expense.date >= Date.now()-100000000
+            })
+            return filteredItems
+        }
+        else if(timeFrame.toLowerCase() === 'week') {
+            const filteredItems = expenses.filter((expense) => {
+                return expense.date >= Date.now()-700000000
+            })
+            return filteredItems
+        }
+        else if(timeFrame.toLowerCase() === 'month') {
+            const filteredItems = expenses.filter((expense) => {
+                return expense.date >= Date.now()-3000000000
+            })
+            return filteredItems
+        }
+        else if(timeFrame.toLowerCase() === 'year') {
+            const filteredItems = expenses.filter((expense) => {
+                return expense.date >= Date.now()-36500000000
+            })
+            return filteredItems
         }
     }
 
@@ -22,7 +59,7 @@ class Home extends Component {
 
         const { currentUser, expenses, budget, categories, goals } = this.context;
 
-        const allCosts = expenses.map(expense => expense.cost);
+        const allCosts = this.expensesTotal(budget.timeFrame, expenses).map(expense => expense.cost);
         const total = allCosts.reduce((accumulator, currentValue) => {
             return accumulator + currentValue
         }, 0)
@@ -68,14 +105,12 @@ class Home extends Component {
                         <h1>Welcome {currentUser.userName}!</h1>
                     </div>
                     <section className="dollars-spent">
-                        You have spent ${reformattedTotal} this week.
+                        {this.amountSpent(budget.timeFrame, reformattedTotal)}
                     </section>
                     <section className="budget-dollars">
-                        {this.budgetStanding(parseInt(reformattedTotal), budget)}
+                        {this.budgetStanding(parseFloat(reformattedTotal), budget.budget)}
                     </section>
                 </div>
-                <button onClick={() => console.log(this.context.categories)}>reformatted total</button>
-                <button onClick={() => console.log(budget[0].budget)}>budget</button>
                 <ExpenseChart />
             </div>
         )
