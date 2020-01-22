@@ -11,7 +11,19 @@
     text-align: right;
 }
 
-li {
+.add-expense-nav-li {
     display: inline;
     margin-right: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    .add-expense-nav {
+        font-size: 14px;
+    }
+
+    .add-expense-nav-ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }

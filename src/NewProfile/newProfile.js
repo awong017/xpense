@@ -26,19 +26,19 @@ class NewProfile extends Component {
 
     render() {
 
-        const { budgetError, goalError, handleSave } = this.context;
+        const { budgetError, timeFrameError, goalError, handleSaveNewProfile } = this.context;
         const { budget, timeFrame, goal1, category1, goal2, category2 } = this.state;
 
         return (
             <div>
                 <NewProfileNav />
                 <div className="new-profile">
-                    <form className="new-profile-form" onSubmit={(e) => handleSave(e, budget, timeFrame, goal1, category1, goal2, category2)}>
+                    <form className="new-profile-form" onSubmit={(e) => handleSaveNewProfile(e, budget, timeFrame, goal1, category1, goal2, category2)}>
                         <legend className="new-profile-legend"><h2>To get started, lets set some goals!</h2></legend>
                         <div>
                             <label className="new-profile-label">Budget: </label>
                             <p className="dollar-sign">$</p>
-                            <input type="text" className="dollar-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
                             <p className="budget-text">per</p>
                             <select className="budget-timeframe"  onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
                                 <option defaultValue>--Select Time Frame--</option>
@@ -48,6 +48,7 @@ class NewProfile extends Component {
                                 <option value="year">Year</option>
                             </select> 
                             <div className="error">{budgetError}</div>
+                            <div className="error">{timeFrameError}</div>
                         </div>
                         <div className="goals-section">
                             <label className="goals-label">Goals: </label>

@@ -11,7 +11,7 @@
     text-align: right;
 }
 
-li {
+.new-profile-nav-li {
     display: inline;
     margin-right: 25px;
 }
@@ -24,4 +24,16 @@ a {
 a:hover {
     text-decoration: underline;
     font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+    .new-profile-nav {
+        font-size: 14px;
+      }
+
+    .new-profile-nav-ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }

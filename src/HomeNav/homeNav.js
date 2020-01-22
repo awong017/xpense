@@ -15,17 +15,17 @@ class HomeNav extends Component {
 
             <div className="home-nav">
                 <ul className="home-nav-ul">
-                    <li>
+                    <li className="home-nav-li">
                         <Link to={"/profile"}>
                             Profile
                         </Link>
                     </li>
-                    <li>
+                    <li className="home-nav-li">
                         <Link to={"/summary"}>
                             Summary
                         </Link>
                     </li>
-                    <li>
+                    <li className="home-nav-li">
                         <Link 
                             to={"/"}
                             onClick={() => handleLogout()}>

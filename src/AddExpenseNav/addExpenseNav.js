@@ -7,22 +7,22 @@ class AddExpenseNav extends Component {
         return (
             <div className="add-expense-nav">
                 <ul className="add-expense-nav-ul">
-                    <li>
+                    <li className="add-expense-nav-ul">
                         <Link to={"/home"}>
                             Home
                         </Link>
                     </li>
-                    <li>
+                    <li className="add-expense-nav-li">
                         <Link to={"/profile"}>
                             Profile
                         </Link>
                     </li>
-                    <li>
+                    <li className="add-expense-nav-li">
                         <Link to={"/summary"}>
                             Summary
                         </Link>
                     </li>
-                    <li>
+                    <li className="add-expense-nav-li">
                         <Link to={"/"}>
                             Log Out
                         </Link>

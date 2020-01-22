@@ -36,24 +36,6 @@
     width: 75%;
 }
 
-.budget-text {
-    display: inline;
-    margin-left: 20px;
-}
-
-.budget-time-frame {
-    display: inline;
-    margin-left: 20px;
-    background-color: lightgrey;
-    padding: 5px 5px;
-    font-size: 14px;
-    color: white;
-}
-
-.time-frame-menu {
-    display: inline;
-}
-
 .dollar-sign {
     float: left;
     margin-top: 0px;
@@ -70,6 +52,20 @@
     margin-left: 10px;
     margin-bottom: 30px;
     width: 25%;
+}
+
+.budget-text {
+    display: inline;
+    margin-left: 20px;
+}
+
+.budget-timeframe {
+    margin-top: 0px;
+    margin-left: 20px;
+    background-color: lightgrey;
+    padding: 5px 5px;
+    font-size: 14px;
+    color: white;
 }
 
 .goals-section {
@@ -151,4 +147,10 @@
 
 .error {
     color: red;
+}
+
+@media screen and (max-width: 960px) {
+    .profile {
+        width: 50%;
+    }
 }

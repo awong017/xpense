@@ -34,8 +34,55 @@ class App extends Component {
     },
     goals: [],
     budgetError: "",
+    timeFrameError: "",
     goalError:""
   };
+
+  handleUpdateProfile = (event, budgetInput, timeFrame) => {
+
+    event.preventDefault();
+
+    const { budget } = this.state;
+
+    if(!budgetInput) {
+      this.setState({
+        budgetError: "Please input a desired budget"
+      })
+    }
+    else if(!timeFrame) {
+      this.setState({
+        budgetError: "",
+        timeFrameError: "Please select a time frame"
+      })
+    }
+    else
+    {
+      this.setState({
+        budget: {
+          id: budget.id,
+          budget: budgetInput,
+          userID: budget.userID,
+          timeFrame: timeFrame
+        },
+        budgetError: "",
+        timeFrameError: ""
+      })
+
+      let url = `${config.API_ENDPOINT}/api/budgets/${budget.userID}/${budgetInput}/${timeFrame}`
+
+      let options = {
+        method: 'PUT'
+      }
+
+      fetch(url, options)
+      .then(res => {
+          if(!res.ok) {
+              throw new Error('Something went wrong, please try again later');
+          }
+      })
+      this.props.history.push('/home')
+    }
+  }
 
   // Method for logging out
 
@@ -242,7 +289,7 @@ class App extends Component {
 
   // Method for saving profiles
 
-  handleSave = (event, budgetInput, timeFrame, goal1, category1, goal2, category2) => {
+  handleSaveNewProfile = (event, budgetInput, timeFrame, goal1, category1, goal2, category2) => {
 
     event.preventDefault();
 
@@ -253,8 +300,16 @@ class App extends Component {
         budgetError: "Please input a desired budget"
       })
     }
+    else if(!timeFrame) {
+      this.setState({
+        budgetError: "",
+        timeFrameError: "Please select a time frame"
+      })
+    }
     else if(!goal1 || !category1 || !goal2 || !category2) {
       this.setState({
+        budgetError: "",
+        timeFrameError: "",
         goalError: "Please input desired amount and select category"
       })
     }
@@ -286,6 +341,7 @@ class App extends Component {
         budget: newBudget,
         goals: newGoals,
         budgetError: "",
+        timeFrameError: "",
         goalError: ""
       })
 
@@ -295,8 +351,6 @@ class App extends Component {
         userid: currentUser.id,
         timeframe: timeFrame
       }
-
-      console.log('Post Budget: ', postBudget)
 
       const url = config.API_ENDPOINT + '/api/budgets';
       const options ={
@@ -681,8 +735,10 @@ class App extends Component {
       budget: this.state.budget,
       goals: this.state.goals,
       budgetError: this.state.budgetError,
+      timeFrameError: this.state.timeFrameError,
       goalError: this.state.goalError,
-      handleSave: this.handleSave,
+      handleSaveNewProfile: this.handleSaveNewProfile,
+      handleUpdateProfile: this.handleUpdateProfile,
       handleLogout: this.handleLogout
     }
 

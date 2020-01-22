@@ -7,7 +7,7 @@ class NewProfileNav extends Component {
         return (
             <div className="new-profile-nav">
                 <ul className="new-profile-nav-ul">
-                    <li>
+                    <li className="new-profile-nav-li">
                         <Link to={"/"}>
                             Log Out
                         </Link>

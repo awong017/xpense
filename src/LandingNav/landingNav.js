@@ -7,12 +7,12 @@ class LandingNav extends Component {
         return (
             <div className="landing-nav">
                 <ul className="landing-nav-ul">
-                    <li>
+                    <li className="landing-nav-li">
                         <Link to={"/"}>
                             Xpense
                         </Link>
                     </li>
-                    <li>
+                    <li className="landing-nav-li">
                         <Link to={"/login"}>
                             Login/Sign Up
                         </Link>

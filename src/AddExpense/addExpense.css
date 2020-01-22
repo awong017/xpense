@@ -25,6 +25,18 @@
     width: 75%;
 }
 
+.cost-input {
+    border: lightskyblue;
+    background-color: lightgray;
+    color: white;
+    padding: 5px 5px;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    width: 25%;
+}
+
 .category-section {
     border-top: white dotted 5px;
 }
@@ -52,11 +64,7 @@
     text-align: left;
     margin-left: 20px;
     margin-bottom: 10px;
-    width: 200px;
-}
-
-.category-menu {
-    margin-left: 10px;
+    width: 150px;
 }
 
 .submit-new-expense {
@@ -87,3 +95,8 @@
     margin-top: 50px;
 }
 
+@media screen and (max-width: 960px) {
+    .add-expense {
+        width: 50%;
+    }
+}

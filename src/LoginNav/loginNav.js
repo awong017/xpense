@@ -7,7 +7,7 @@ class LoginNav extends Component {
         return (
             <div className="login-nav">
                 <ul className="login-nav-ul">
-                    <li>
+                    <li className="login-nav-li">
                         <Link to={"/"}>
                             Xpense
                         </Link>

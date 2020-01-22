@@ -7,17 +7,17 @@ class ProfileNav extends Component {
         return (
             <div className="profile-nav">
                 <ul className="profile-nav-ul">
-                    <li>
+                    <li className="profile-nav-li">
                         <Link to={"/home"}>
                             Home
                         </Link>
                     </li>
-                    <li>
+                    <li className="profile-nav-li">
                         <Link to={"/summary"}>
                             Summary
                         </Link>
                     </li>
-                    <li>
+                    <li className="profile-nav-li">
                         <Link to={"/"}>
                             Log Out
                         </Link>

@@ -12,3 +12,14 @@
     justify-content: space-between;
     margin-right: 30px;
 }
+
+@media screen and (max-width: 500px) {
+  .landing-nav {
+    font-size: 14px;
+}
+  .landing-nav-li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+}

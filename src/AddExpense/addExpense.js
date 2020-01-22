@@ -44,23 +44,21 @@ class AddExpense extends Component {
                         
                             <label className="add-expense-label">Cost: </label>
                             <p className="dollar-sign">$</p>
-                            <input type="text" className="dollar-input" onChange={(e) => this.updateExpense(name, description, e.target.value, category)} placeholder="USD"></input>
+                            <input type="text" className="cost-input" onChange={(e) => this.updateExpense(name, description, e.target.value, category)} placeholder="USD"></input>
                             <div className="error">{costError}</div>
                         
                         <div className="category-section">
                             <label className="add-expense-label">Category: </label>
                             <input type="text" className="category-input" onChange={(e) => this.updateExpense(name, description, cost, e.target.value)} placeholder="New Category"></input>
-                            <div className="error">{categoryError}</div>
                             <p className="add-expense-text">or</p>
-                            <div className="category-menu">
-                                <select className="add-expense-category" onChange={(e) => this.updateExpense(name, description, cost, e.target.value)}>
-                                    <option defaultValue>--Select Category--</option>
-                                    {categories.map(category =>
-                                        <AddExpenseCategory
-                                            category={category.name}/>
-                                        )}
-                                </select>
-                            </div>
+                            <select className="add-expense-category" onChange={(e) => this.updateExpense(name, description, cost, e.target.value)}>
+                                <option defaultValue>--Select Category--</option>
+                                {categories.map(category =>
+                                    <AddExpenseCategory
+                                        category={category.name}/>
+                                    )}
+                            </select>
+                            <div className="error">{categoryError}</div>
                         </div>
                         <div className="add">
                             <input type="submit" className="submit-new-expense" value="Add"/>

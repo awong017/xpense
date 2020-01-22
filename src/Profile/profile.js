@@ -12,9 +12,10 @@ class Profile extends Component {
         error: null
     }
 
-    updateProfile = (budget, goal1, category1, goal2, category2) => {
+    updateProfile = (budget, timeFrame, goal1, category1, goal2, category2) => {
         this.setState({
             budget: budget,
+            timeFrame: timeFrame,
             goal1: goal1,
             category1: category1,
             goal2: goal2,
@@ -24,14 +25,14 @@ class Profile extends Component {
 
     render() {
 
-        const { currentUser, categories, budgetError, goalError, handleSave } = this.context;
-        const { budget, goal1, category1, goal2, category2 } = this.state;
+        const { currentUser, categories, budgetError, timeFrameError, goalError, handleUpdateProfile } = this.context;
+        const { budget, timeFrame, goal1, category1, goal2, category2 } = this.state;
 
         return (
             <div>
                 <ProfileNav />
                 <div className="profile">
-                    <form className="profile-form" onSubmit={(e) => handleSave(e, budget, goal1, category1, goal2, category2)}>
+                    <form className="profile-form" onSubmit={(e) => handleUpdateProfile(e, budget, timeFrame)}>
                         <legend className="profile-legend"><h2>Profile</h2></legend>
                         <div>
                             <label className="profile-label">Name: </label>
@@ -44,28 +45,27 @@ class Profile extends Component {
                         <div>
                             <label className="profile-label">Budget: </label>
                             <p className="dollar-sign">$</p>
-                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <p className="budget-text">per</p>
+                            <select className = "budget-timeframe" onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
+                                <option>--Select Time--</option>
+                                <option>Day</option>
+                                <option>Week</option>
+                                <option>Month</option>
+                                <option>Year</option>
+                            </select>
                             <div className="error">{budgetError}</div>
-                            <p className = "budget-text">per</p>
-                            <div className = "time-frame-menu">
-                                <select className = "budget-time-frame">
-                                    <option>--Select Time--</option>
-                                    <option>Day</option>
-                                    <option>Week</option>
-                                    <option>Month</option>
-                                    <option>Year</option>
-                                </select>
-                            </div>
+                            <div className="error">{timeFrameError}</div>
                         </div>
                         <div className="goals-section">
                             <label className="goals-label">Goals: </label>
                             <div className="goal">
                                 <p className="goal-text-1">1) I would like to spend less than</p>
                                 <p className="goal-dollar-sign">$</p>
-                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, e.target.value, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, e.target.value, category1, goal2, category2)} placeholder="Amount in USD"></input>
                                 <p className="goal-text-2">on</p>
                                 <div className="category-menu">
-                                    <select className="select-category" onChange={(e) => this.updateProfile(budget, goal1, e.target.value, goal2, category2)}>
+                                    <select className="select-category" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, e.target.value, goal2, category2)}>
                                         <option defaultValue>--Select Category--</option>
                                         {categories.map(category =>
                                             <AddExpenseCategory
@@ -78,10 +78,10 @@ class Profile extends Component {
                             <div className="goal">
                                 <p className="goal-text-1">2) I would like to spend less than</p>
                                 <p className="goal-dollar-sign">$</p>
-                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, goal1, category1, e.target.value, category2)} placeholder="Amount in USD"></input>
+                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, e.target.value, category2)} placeholder="Amount in USD"></input>
                                 <p className="goal-text-2">on</p>
                                 <div className="category-menu">
-                                    <select className="select-category" onChange={(e) => this.updateProfile(budget, goal1, category1, goal2, e.target.value)}>
+                                    <select className="select-category" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, goal2, e.target.value)}>
                                         <option defaultValue>--Select Category--</option>
                                         {categories.map(category =>
                                             <AddExpenseCategory

@@ -7,22 +7,22 @@ class SummaryNav extends Component {
         return (
             <div className="summary-nav">
                 <ul className="summary-nav-ul">
-                    <li>
+                    <li className="summary-nav-li">
                         <Link to={"/home"}>
                             Home
                         </Link>
                     </li>
-                    <li>
+                    <li className="summary-nav-li">
                         <Link to={"/profile"}>
                             Profile
                         </Link>
                     </li>
-                    <li>
+                    <li className="summary-nav-li">
                         <Link to={"/add"}>
                             Add Expense
                         </Link>
                     </li>
-                    <li>
+                    <li className="summary-nav-li">
                         <Link to={"/"}>
                             Log Out
                         </Link>

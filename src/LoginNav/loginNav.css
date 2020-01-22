@@ -8,7 +8,16 @@
 
 .login-nav-ul {
     list-style: none;
-    display: flex;
-    justify-content: space-between;
     margin-right: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .login-nav {
+    font-size: 14px;
+  }
+
+  .login-nav-li {
+    display: flex;
+    justify-content: space-around;
+  }
 }
