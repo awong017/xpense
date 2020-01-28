@@ -7,7 +7,7 @@ class AddExpenseNav extends Component {
         return (
             <div className="add-expense-nav">
                 <ul className="add-expense-nav-ul">
-                    <li className="add-expense-nav-ul">
+                    <li className="add-expense-nav-li">
                         <Link to={"/home"}>
                             Home
                         </Link>

@@ -6,7 +6,7 @@
     border: lightsalmon;
     background: lightsalmon;
     border-radius: 25px;
-    width: 25%;
+    width: 400px;
     padding: 20px;
 }
 
@@ -58,8 +58,17 @@ legend {
     transition: 0.3s; 
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 500px) {
     .login-form {
-        width: 50%;
+        margin-top: 250px;
+        width: 75%;
+    }
+
+    .login-label {
+        font-size: 18px;
+    }
+
+    .login-button {
+        font-size: 16px;
     }
 }

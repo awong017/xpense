@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 500px) {
   .landing-nav {
-    font-size: 14px;
+    font-size: 16px;
 }
   .landing-nav-li {
       display: flex;

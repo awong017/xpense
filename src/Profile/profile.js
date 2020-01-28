@@ -45,7 +45,7 @@ class Profile extends Component {
                         <div>
                             <label className="profile-label">Budget: </label>
                             <p className="dollar-sign">$</p>
-                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="USD"></input>
                             <p className="budget-text">per</p>
                             <select className = "budget-timeframe" onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
                                 <option>--Select Time--</option>
@@ -62,7 +62,7 @@ class Profile extends Component {
                             <div className="goal">
                                 <p className="goal-text-1">1) I would like to spend less than</p>
                                 <p className="goal-dollar-sign">$</p>
-                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, e.target.value, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, e.target.value, category1, goal2, category2)} placeholder="USD"></input>
                                 <p className="goal-text-2">on</p>
                                 <div className="category-menu">
                                     <select className="select-category" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, e.target.value, goal2, category2)}>
@@ -78,7 +78,7 @@ class Profile extends Component {
                             <div className="goal">
                                 <p className="goal-text-1">2) I would like to spend less than</p>
                                 <p className="goal-dollar-sign">$</p>
-                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, e.target.value, category2)} placeholder="Amount in USD"></input>
+                                <input type="text" className="goal-input" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, e.target.value, category2)} placeholder="USD"></input>
                                 <p className="goal-text-2">on</p>
                                 <div className="category-menu">
                                     <select className="select-category" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, goal2, e.target.value)}>

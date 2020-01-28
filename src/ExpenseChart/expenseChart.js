@@ -56,18 +56,20 @@ class ExpenseChart extends Component {
                             }
                         ]
                     }}
-                    width={500}
-                    height={500}
+                    width={400}
                     options={{
-                        // title: {
-                        //     display: true,
-                        //     text: 'Expenses',
-                        //     fontSize: 25,
-                        //     width: 25
-                        // },
+                        responsive: true,
+                        aspectRatio: 1,
+                        maintainAspectRatio: true,
+                        title: {
+                            display: false,
+                            text: 'Expenses',
+                            fontSize: 24,
+                        },
                         legend: {
                             display: true,
-                            position: 'right'
+                            position: 'bottom',
+                            fontSize: 18
                         }
                     }}
                 />

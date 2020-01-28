@@ -3,6 +3,8 @@
     justify-content: space-around;
     font-size: 75%;
     text-align: left;
+    list-style: none;
+    padding-left: 0px;
 }
 
 .delete-button {

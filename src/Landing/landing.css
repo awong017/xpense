@@ -23,3 +23,18 @@
   .landing-section:nth-child(even) {
     background-color: #ddd;
   }
+
+  @media screen and (max-width:500px) {
+
+    h2 {
+      font-size: 26px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }

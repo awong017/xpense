@@ -100,17 +100,15 @@ class Home extends Component {
         return (
             <div className="home">
                 <HomeNav/>
-                <div className="home-main">
-                    <div className="welcome">
-                        <h1>Welcome {currentUser.userName}!</h1>
-                    </div>
-                    <section className="dollars-spent">
-                        {this.amountSpent(budget.timeFrame, reformattedTotal)}
-                    </section>
-                    <section className="budget-dollars">
-                        {this.budgetStanding(parseFloat(reformattedTotal), budget.budget)}
-                    </section>
+                <div className="welcome">
+                    <h1 className="greeting">Hey {currentUser.userName}!</h1>
                 </div>
+                <section className="dollars-spent">
+                    {this.amountSpent(budget.timeFrame, reformattedTotal)}
+                </section>
+                <section className="budget-dollars">
+                    {this.budgetStanding(parseFloat(reformattedTotal), budget.budget)}
+                </section>
                 <ExpenseChart />
             </div>
         )
