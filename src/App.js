@@ -32,10 +32,8 @@ class App extends Component {
       userID: "user",
       timeFrame: "day"
     },
-    goals: [],
     budgetError: "",
     timeFrameError: "",
-    goalError:""
   };
 
   handleUpdateProfile = (event, budgetInput, timeFrame) => {
@@ -304,13 +302,6 @@ class App extends Component {
       this.setState({
         budgetError: "",
         timeFrameError: "Please select a time frame"
-      })
-    }
-    else if(!goal1 || !category1 || !goal2 || !category2) {
-      this.setState({
-        budgetError: "",
-        timeFrameError: "",
-        goalError: "Please input desired amount and select category"
       })
     }
     else

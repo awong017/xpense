@@ -15,6 +15,7 @@
 }
 
 .add-expense-field {
+    font-family: "Open Sans", sans-serif; 
     border: lightskyblue;
     background-color: lightgrey;
     padding: 5px 5px;
@@ -22,7 +23,12 @@
     font-size: 14px;
     text-align: left;
     margin-left: 20px;
+    border-radius: 5px;
     width: 75%;
+}
+
+.new-expense-description {
+    height: 75px;
 }
 
 .cost-input {

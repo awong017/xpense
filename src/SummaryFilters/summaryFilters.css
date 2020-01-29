@@ -1,4 +1,16 @@
-.filter {
+.summary-category-filter {
+    display: inline-block;
+}
+
+.category-filter-label {
+    margin-left: 10px;
+}
+
+.summary-search-filter {
+    display: inline-block;
+}
+
+.search-filter-label {
     margin-left: 10px;
 }
 
@@ -24,4 +36,14 @@ input {
 
 select {
     border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .summary-category-filter {
+        display: block;
+    }
+
+    .summary-search-filter {
+        display: block;
+    }
 }

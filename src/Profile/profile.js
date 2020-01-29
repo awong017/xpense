@@ -42,7 +42,7 @@ class Profile extends Component {
                             <label className="profile-label">Password: </label>
                             <p className="user-info" type="password">{currentUser.password}</p>
                         </div>
-                        <div>
+                        <div className="profile-budget">
                             <label className="profile-label">Budget: </label>
                             <p className="dollar-sign">$</p>
                             <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="USD"></input>
@@ -57,7 +57,7 @@ class Profile extends Component {
                             <div className="error">{budgetError}</div>
                             <div className="error">{timeFrameError}</div>
                         </div>
-                        <div className="goals-section">
+                        {/* <div className="goals-section">
                             <label className="goals-label">Goals: </label>
                             <div className="goal">
                                 <p className="goal-text-1">1) I would like to spend less than</p>
@@ -91,9 +91,9 @@ class Profile extends Component {
                                 </div>
                                 <div className="error">{goalError}</div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="save">
-                            <input type="submit" className="save-button" value="Save"/>
+                            <input type="submit" className="save-button" value="Update"/>
                         </div>
                     </form>
                 </div>

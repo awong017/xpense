@@ -18,9 +18,9 @@ class SummaryItem extends Component {
                 <ul className="summary-item">
                     <li className="summary-detail">{format(date, 'M/d/yy')}</li>
                     <li className="summary-detail">{name}</li>
-                    <li className="summary-detail">{category}</li>
-                    <li className="summary-detail amount">${formattedAmount}</li>
-                    <li><button className="delete-button" onClick = {()=>handleDelete(id, category)}>Delete</button></li>
+                    <li className="summary-detail category-detail">{category}</li>
+                    <li className="summary-detail">${formattedAmount}</li>
+                    <li><button className="delete-button" onClick = {()=>handleDelete(id, category)}>X</button></li>
                 </ul>
             </div>
         );

@@ -26,21 +26,23 @@ class SummaryFilters extends Component {
 
         return(
             <div className="summary-filters">
-
-                <label className="filter">Category: </label>
-                <select onChange={(e) => filterCategory(e.target.value, search)}>
-                    <option defaultValue="All">All</option>
-                    {categories.map((category) => 
-                        <CategoryFilter 
-                            key={category.id}
-                            category={category.name}
-                        />
-                    )}
-                </select>
-
-                <label className="filter">Search: </label>
-                <input type="text" onChange={(e) => this.updateSearch(e.target.value, search)}></input>
-                <button type="button" className="search" onClick={() => handleSearch(search)}>Go</button>
+                <div className="summary-category-filter">
+                    <label className="category-filter-label">Category: </label>
+                    <select onChange={(e) => filterCategory(e.target.value, search)}>
+                        <option defaultValue="All">All</option>
+                        {categories.map((category) => 
+                            <CategoryFilter 
+                                key={category.id}
+                                category={category.name}
+                            />
+                        )}
+                    </select>
+                </div>
+                <div className="summary-search-filter">
+                    <label className="search-filter-label">Search: </label>
+                    <input type="text" onChange={(e) => this.updateSearch(e.target.value, search)}></input>
+                    <button type="button" className="search" onClick={() => handleSearch(search)}>Go</button>
+                </div>
                 <DateFilter/>
             </div>
         );

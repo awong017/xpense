@@ -65,38 +65,6 @@ class Home extends Component {
         }, 0)
         const reformattedTotal = (Math.round(total*100)/100).toFixed(2);
 
-        // const checkBudgetCategory = goals.some((goal) => {
-        //     return goal.category.toLowerCase() === category.toLowerCase()
-        // })
-
-        // if(checkBudgetCategory === true) {
-        //     const findBudgetCategory = goals.find((goal) => {
-        //     return goal.category.toLowerCase() === category.toLowerCase()
-        //     })
-
-        //     const filteredExpenses = expenses.filter((expense) => {
-        //     return expense.category.toLowerCase() === category.toLowerCase()
-        //     })
-        //     const filteredExpenseCosts = filteredExpenses.map((expense) => {
-        //     return expense.cost
-        //     })
-        //     const total = filteredExpenseCosts.reduce((accumulator, currentValue) => {
-        //     return accumulator + currentValue
-        //     }, 0)
-
-        //     const reformattedTotal = (Math.round(total*100)/100).toFixed(2);
-            
-        //     if(findBudgetCategory.amount >= reformattedTotal) {
-        //     const categoryTotal = findBudgetCategory.amount - reformattedTotal
-        //     const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
-        //     }
-        //     else
-        //     {
-        //     const categoryTotal = reformattedTotal - findBudgetCategory.amount
-        //     const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
-        //     }
-        // }
-
         return (
             <div className="home">
                 <HomeNav/>
@@ -106,10 +74,10 @@ class Home extends Component {
                 <section className="dollars-spent">
                     {this.amountSpent(budget.timeFrame, reformattedTotal)}
                 </section>
+                <ExpenseChart />
                 <section className="budget-dollars">
                     {this.budgetStanding(parseFloat(reformattedTotal), budget.budget)}
                 </section>
-                <ExpenseChart />
             </div>
         )
     }

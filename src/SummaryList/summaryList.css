@@ -5,8 +5,24 @@
 }
 
 .summary-list {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px;  
+    display: grid;
+    grid-template-columns: 15% 40% 20% 15% 10%;
     list-style: none;
+    text-decoration: underline;
+    padding-left: 0px;
+}
+
+.summary-list-item {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    .category-list-item {
+        display: none;
+    }
+
+    .summary-list {
+        grid-template-columns: 29% 29% 29% 13%;
+    }
 }

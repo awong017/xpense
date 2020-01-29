@@ -25,10 +25,10 @@ class SummaryList extends Component {
         return (
             <div className="summary-expenses">
                 <ul className="summary-list">
-                    <li>Date</li>
-                    <li>Name</li>
-                    <li>Category</li>
-                    <li>Amount</li>
+                    <li className="summary-list-item">Date</li>
+                    <li className="summary-list-item">Name</li>
+                    <li className="summary-list-item category-list-item">Category</li>
+                    <li className="summary-list-item">Amount</li>
                 </ul>
                 {this.listedExpenses(currentCategory, filteredExpenses).map(expense => 
                     <SummaryItem 

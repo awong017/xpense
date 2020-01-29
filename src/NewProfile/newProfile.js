@@ -34,11 +34,11 @@ class NewProfile extends Component {
                 <NewProfileNav />
                 <div className="new-profile">
                     <form className="new-profile-form" onSubmit={(e) => handleSaveNewProfile(e, budget, timeFrame, goal1, category1, goal2, category2)}>
-                        <legend className="new-profile-legend"><h2>To get started, lets set some goals!</h2></legend>
+                        <legend className="new-profile-legend"><h2>To get started, lets set a goal!</h2></legend>
                         <div>
                             <label className="new-profile-label">Budget: </label>
                             <p className="dollar-sign">$</p>
-                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="Amount in USD"></input>
+                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="USD"></input>
                             <p className="budget-text">per</p>
                             <select className="budget-timeframe"  onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
                                 <option defaultValue>--Select Time Frame--</option>
@@ -50,7 +50,7 @@ class NewProfile extends Component {
                             <div className="error">{budgetError}</div>
                             <div className="error">{timeFrameError}</div>
                         </div>
-                        <div className="goals-section">
+                        {/* <div className="goals-section">
                             <label className="goals-label">Goals: </label>
                             <div className="goal">
                                 <p className="goal-text-1">1) I would like to spend less than</p>
@@ -68,7 +68,7 @@ class NewProfile extends Component {
                                 <input type="text" className="goal-input goal-category-input" onChange={(e) => this.updateProfile(budget, timeFrame, goal1, category1, goal2, e.target.value)} placeholder="Create Category"></input>
                                 <div className="error">{goalError}</div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="save">
                             <input type="submit" className="save-button" value="Get Started!"/>
                         </div>

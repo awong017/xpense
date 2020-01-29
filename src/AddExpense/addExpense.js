@@ -38,7 +38,7 @@ class AddExpense extends Component {
                             <div className="error">{nameError}</div>
                         
                             <label className="add-expense-label">Description: </label>
-                            <input className="description" className="add-expense-field" type="text" onChange={(e) => this.updateExpense(name, e.target.value, cost, category)} placeholder="Description"></input>
+                            <textarea className="add-expense-field new-expense-description" type="text" onChange={(e) => this.updateExpense(name, e.target.value, cost, category)} placeholder="Description"></textarea>
                             <div className="error">{descriptionError}</div>
                         
                         

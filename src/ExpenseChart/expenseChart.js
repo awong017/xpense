@@ -49,18 +49,19 @@ class ExpenseChart extends Component {
                                     'rgba(75, 192, 192, 0.6)',
                                     'rgba(153, 102, 255, 0.6)',
                                     'rgba(255, 159, 64, 0.6)',
-                                    'rgba(255, 99, 132, 0.6)'
+                                    'rgba(50, 99, 132, 0.6)',
+                                    'rgba(2, 32, 234, 0.6)'
                                 ],
                                 hoverBorderWidth: 3,
                                 hoverBorderColor: 'gray'
                             }
                         ]
                     }}
-                    width={400}
+                    height={400}
                     options={{
                         responsive: true,
                         aspectRatio: 1,
-                        maintainAspectRatio: true,
+                        maintainAspectRatio: false,
                         title: {
                             display: false,
                             text: 'Expenses',

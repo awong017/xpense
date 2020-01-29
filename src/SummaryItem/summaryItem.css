@@ -1,22 +1,40 @@
 .summary-item {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 15% 40% 20% 15% 10%;
     font-size: 75%;
-    text-align: left;
+    text-align: center;
     list-style: none;
     padding-left: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom: 2px solid white;
 }
 
 .delete-button {
     color: white;
-    background: grey;
-    border: grey;
-    border-radius: 10px;
-    padding: 5px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    padding: 5px 5px;
 }
 
 .delete-button:hover {
     cursor: pointer;
-    background: red;
+    background: white;
+    color: black;
     transition: 0.1s;
+}
+
+@media screen and (max-width: 500px) {
+    .category-detail {
+        display: none;
+    }
+
+    .summary-item {
+        grid-template-columns: 29% 29% 29% 13%;
+    }
 }
