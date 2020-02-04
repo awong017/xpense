@@ -2,51 +2,73 @@
     box-sizing: border-box;
   }
 
-  .landing {
-    margin-top: 150px;
-    text-align: center;
+.landing {
+  margin-top: 150px;
+  text-align: center;
+}
+
+body {
+  font-family: "Open Sans",
+  sans-serif; 
+  font-size: 20px;
+  line-height: 1.5;
   }
 
-  body {
-    font-family: "Open Sans",
-    sans-serif; 
-    font-size: 20px;
-    line-height: 1.5;
+.landing-title {
+  font-size: 300%;
+  font-style: italic;
   }
 
-  .landing-title {
-    font-size: 300%;
-    font-style: italic;
-  }
-
-  .landing-heading {
-    margin-bottom: 150px;
-  }
+.landing-heading {
+  margin-bottom: 150px;
+}
   
-  .landing-section {
-    min-height: 200px;
-    padding: 6% 0;
-    margin-bottom: 150px;
-    color: white;
-  }
+.landing-section {
+  min-height: 200px;
+  padding: 50px 50px;
+  margin-bottom: 125px;
+  color: white;
+}
 
-  .how-it-works {
+.landing-section-heading {
+  margin-top: 0px;
+  margin-bottom: 100px;
+}
+
+.how-it-works {
     background-color: purple;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
-  .view-expenses {
+.view-expenses {
     background-color: salmon;
   }
 
-  .know-where-you-stand {
+.know-where-you-stand {
     background-color: lightskyblue;
   }
 
-  .organize-your-expenses {
+.organize-your-expenses {
     background-color: lightgreen;
   }
+
+.sign-up-button {
+  margin-top: 0px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  padding: 15px 30px;
+  color: white;
+  background-color: purple;
+  border: purple;
+  font-size: 24px;
+}
+
+.sign-up-button:hover {
+  cursor: pointer;
+  background: pink;
+  transition: 0.3s; 
+}
 
   @media screen and (max-width:500px) {
 
@@ -60,5 +82,10 @@
 
     p {
       font-size: 18px;
+    }
+
+    .sign-up-button {
+      font-size: 16px;
+      padding: 5px 10px;
     }
   }

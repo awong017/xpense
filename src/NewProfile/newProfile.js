@@ -36,16 +36,18 @@ class NewProfile extends Component {
                         <legend className="new-profile-legend"><h2>To get started, lets set a goal!</h2></legend>
                         <div>
                             <p className="budget-statement">I want to set a budget of </p>
-                            <p className="dollar-sign">$</p>
-                            <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="USD"></input>
-                            <p className="budget-text">per</p>
-                            <select className="budget-timeframe"  onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
-                                <option defaultValue>--Select Time--</option>
-                                <option value="day">Day</option>
-                                <option value="week">Week</option>
-                                <option value="month">Month</option>
-                                <option value="year">Year</option>
-                            </select> 
+                            <div className="budget-setting">
+                                <span className="dollar-symbol">$</span>
+                                <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="USD"></input>
+                                <p className="budget-text">per</p>
+                                <select className="budget-timeframe"  onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
+                                    <option defaultValue>--Select Time--</option>
+                                    <option value="day">Day</option>
+                                    <option value="week">Week</option>
+                                    <option value="month">Month</option>
+                                    <option value="year">Year</option>
+                                </select>
+                            </div>
                             <div className="error">{budgetError}</div>
                             <div className="error">{timeFrameError}</div>
                         </div>
