@@ -7,10 +7,46 @@ class ExpenseChart extends Component {
 
     static contextType = ApiContext;
 
-    sumOfCategoryExpenses = (category) => {
-        const { expenses } = this.context
-    
-        const categoryGroup = expenses.filter((expense) => {
+    getChartExpenses = (expenses, timeFrame) => {
+        if(timeFrame.toLowerCase() === 'day') {
+            const filteredExpenses = expenses.filter((expense) => {
+                return expense.date >= Date.now()-100000000
+            })
+            return filteredExpenses;
+        }
+        else if(timeFrame.toLowerCase() === 'week') {
+            const filteredExpenses = expenses.filter((expense) => {
+                return expense.date >= Date.now()-700000000
+            })
+            return filteredExpenses;
+        }
+        else if(timeFrame.toLowerCase() === 'month') {
+            const filteredExpenses = expenses.filter((expense) => {
+                return expense.date >= Date.now()-3000000000
+            })
+            return filteredExpenses;
+        }
+        else if(timeFrame.toLowerCase() === 'year') {
+            const filteredExpenses = expenses.filter((expense) => {
+                return expense.date >= Date.now()-36500000000
+            })
+            return filteredExpenses;
+        }
+    }
+
+    makeUnique = (value, index, self) => {
+        return self.indexOf(value) === index;
+    }
+
+    getChartCategories = (filteredExpenses, makeUnique) => {
+        const getCategories = filteredExpenses.map((item) => {
+            return item.category 
+        })
+        return getCategories.filter(makeUnique)
+    }
+
+    sumOfCategoryExpenses = (filteredExpenses, category) => {
+        const categoryGroup = filteredExpenses.filter((expense) => {
           return expense.category === category
         });
     
@@ -26,22 +62,26 @@ class ExpenseChart extends Component {
       }
 
     render() {
+        const { expenses, budget } = this.context
 
-        const { categories } = this.context
+        const chartCategories = this.getChartCategories(this.getChartExpenses(expenses, budget.timeFrame), this.makeUnique)
+
+        console.log("Chart Expenses: ", this.getChartExpenses(expenses, budget.timeFrame));
 
         return (
             <div className="expense-chart">
                 <Doughnut 
                     data={{
-                        labels: categories.map((category) => {
-                            return category.name
+                        labels: chartCategories.map((category) => {
+                            return category
                         }),
                         datasets: [
                             {
-                                label: 'Population',
-                                data: categories.map((category) => {
-                                    return this.sumOfCategoryExpenses(category.name)
-                                }),
+                                label: 'Expenses',
+                                data:
+                                    chartCategories.map((category) => {
+                                        return this.sumOfCategoryExpenses(this.getChartExpenses(expenses, budget.timeFrame), category)
+                                    }),
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.6)',
                                     'rgba(54, 162, 235, 0.6)',

@@ -57,7 +57,7 @@ class Home extends Component {
 
     render() {
 
-        const { currentUser, expenses, budget, categories, goals } = this.context;
+        const { currentUser, expenses, budget } = this.context;
 
         const allCosts = this.expensesTotal(budget.timeFrame, expenses).map(expense => expense.cost);
         const total = allCosts.reduce((accumulator, currentValue) => {

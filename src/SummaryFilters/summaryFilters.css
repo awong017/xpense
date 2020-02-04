@@ -6,6 +6,12 @@
     margin-left: 10px;
 }
 
+.filter {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: white;
+}
+
 .summary-search-filter {
     display: inline-block;
 }

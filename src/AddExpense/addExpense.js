@@ -49,9 +49,13 @@ class AddExpense extends Component {
                         
                         <div className="category-section">
                             <label className="add-expense-label">Category: </label>
-                            <input type="text" className="category-input" onChange={(e) => this.updateExpense(name, description, cost, e.target.value)} placeholder="New Category"></input>
+                            <input type="text" className="category-input" id="category-input" 
+                            onChange={(e) => {this.updateExpense(name, description, cost, e.target.value)}}
+                            placeholder="New Category"></input>
                             <p className="add-expense-text">or</p>
-                            <select className="add-expense-category" onChange={(e) => this.updateExpense(name, description, cost, e.target.value)}>
+                            <select className="add-expense-category" 
+                            onChange={(e) => {this.updateExpense(name, description, cost, e.target.value); 
+                                            document.getElementById("category-input").value="";}}>
                                 <option defaultValue>--Select Category--</option>
                                 {categories.map(category =>
                                     <AddExpenseCategory

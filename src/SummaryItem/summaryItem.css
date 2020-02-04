@@ -35,6 +35,6 @@
     }
 
     .summary-item {
-        grid-template-columns: 29% 29% 29% 13%;
+        grid-template-columns: 25% 35% 25% 15%;
     }
 }

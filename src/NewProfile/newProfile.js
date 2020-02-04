@@ -21,7 +21,6 @@ class NewProfile extends Component {
             goal2: goal2,
             category2: category2
         })
-        console.log(this.state);
     }
 
     render() {
@@ -36,12 +35,12 @@ class NewProfile extends Component {
                     <form className="new-profile-form" onSubmit={(e) => handleSaveNewProfile(e, budget, timeFrame, goal1, category1, goal2, category2)}>
                         <legend className="new-profile-legend"><h2>To get started, lets set a goal!</h2></legend>
                         <div>
-                            <label className="new-profile-label">Budget: </label>
+                            <p className="budget-statement">I want to set a budget of </p>
                             <p className="dollar-sign">$</p>
                             <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame, goal1, category1, goal2, category2)} placeholder="USD"></input>
                             <p className="budget-text">per</p>
                             <select className="budget-timeframe"  onChange={(e) => this.updateProfile(budget, e.target.value, goal1, category1, goal2, category2)}>
-                                <option defaultValue>--Select Time Frame--</option>
+                                <option defaultValue>--Select Time--</option>
                                 <option value="day">Day</option>
                                 <option value="week">Week</option>
                                 <option value="month">Month</option>

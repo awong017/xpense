@@ -642,37 +642,37 @@ class App extends Component {
 
       this.addCategory(category);
 
-      const checkBudgetCategory = goals.some((goal) => {
-        return goal.category.toLowerCase() === category.toLowerCase()
-      })
+      // const checkBudgetCategory = goals.some((goal) => {
+      //   return goal.category.toLowerCase() === category.toLowerCase()
+      // })
 
-      if(checkBudgetCategory === true) {
-        const findBudgetCategory = goals.find((goal) => {
-          return goal.category.toLowerCase() === category.toLowerCase()
-        })
+      // if(checkBudgetCategory === true) {
+      //   const findBudgetCategory = goals.find((goal) => {
+      //     return goal.category.toLowerCase() === category.toLowerCase()
+      //   })
 
-        const filteredExpenses = expenses.filter((expense) => {
-          return expense.category.toLowerCase() === category.toLowerCase()
-        })
-        const filteredExpenseCosts = filteredExpenses.map((expense) => {
-          return expense.cost
-        })
-        const total = filteredExpenseCosts.reduce((accumulator, currentValue) => {
-          return accumulator + currentValue
-        }, 0)
+      //   const filteredExpenses = expenses.filter((expense) => {
+      //     return expense.category.toLowerCase() === category.toLowerCase()
+      //   })
+      //   const filteredExpenseCosts = filteredExpenses.map((expense) => {
+      //     return expense.cost
+      //   })
+      //   const total = filteredExpenseCosts.reduce((accumulator, currentValue) => {
+      //     return accumulator + currentValue
+      //   }, 0)
 
-        const reformattedTotal = (Math.round(total*100)/100).toFixed(2);
+      //   const reformattedTotal = (Math.round(total*100)/100).toFixed(2);
         
-        if(findBudgetCategory.amount >= reformattedTotal) {
-          const categoryTotal = findBudgetCategory.amount - reformattedTotal
-          const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
-        }
-        else
-        {
-          const categoryTotal = reformattedTotal - findBudgetCategory.amount
-          const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
-        }
-      }
+      //   if(findBudgetCategory.amount >= reformattedTotal) {
+      //     const categoryTotal = findBudgetCategory.amount - reformattedTotal
+      //     const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
+      //   }
+      //   else
+      //   {
+      //     const categoryTotal = reformattedTotal - findBudgetCategory.amount
+      //     const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
+      //   }
+      // }
       this.props.history.push('/summary');
     }
   }

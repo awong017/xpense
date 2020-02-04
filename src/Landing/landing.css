@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
   }
-  
+
   .landing {
     margin-top: 150px;
     text-align: center;
@@ -13,15 +13,39 @@
     font-size: 20px;
     line-height: 1.5;
   }
+
+  .landing-title {
+    font-size: 300%;
+    font-style: italic;
+  }
+
+  .landing-heading {
+    margin-bottom: 150px;
+  }
   
   .landing-section {
     min-height: 200px;
     padding: 6% 0;
-    background-color: #bbb;
+    margin-bottom: 150px;
+    color: white;
   }
-  
-  .landing-section:nth-child(even) {
-    background-color: #ddd;
+
+  .how-it-works {
+    background-color: purple;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .view-expenses {
+    background-color: salmon;
+  }
+
+  .know-where-you-stand {
+    background-color: lightskyblue;
+  }
+
+  .organize-your-expenses {
+    background-color: lightgreen;
   }
 
   @media screen and (max-width:500px) {
