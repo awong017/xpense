@@ -82,8 +82,6 @@ class App extends Component {
     }
   }
 
-  // Method for logging out
-
   handleLogout = () => {
 
     this.setState({
@@ -94,10 +92,7 @@ class App extends Component {
       filteredExpenses: [],
       goals: [],
     })
-
   }
-
-  // Method for logging in as an existing user
 
   handleLogin = (event, username, password) => {
 
@@ -223,8 +218,6 @@ class App extends Component {
     }
   }
 
-  // Method for signing up as a new user
-
   handleSignUp = (event, username, password) => {
 
     const { users } = this.state
@@ -300,8 +293,6 @@ class App extends Component {
       this.props.history.push('/NewProfile')
     }
   }
-
-  // Method for saving profiles
 
   handleSaveNewProfile = (event, budgetInput, timeFrame, goal1, category1, goal2, category2) => {
 
@@ -379,8 +370,6 @@ class App extends Component {
       this.props.history.push('/home')
     }
   }
-
-  // Method for deleting expenses
 
   handleDelete = (id, category) => {
     const { expenses, categories, currentCategory, filteredExpenses } = this.state;
