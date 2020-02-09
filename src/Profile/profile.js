@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ProfileNav from '../ProfileNav/profileNav';
-import AddExpenseCategory from '../AddExpenseCategory/addExpenseCategory';
 import './profile.css';
 import ApiContext from '../ApiContext';
 
