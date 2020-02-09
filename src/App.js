@@ -153,36 +153,52 @@ class App extends Component {
       fetch(`${config.API_ENDPOINT}/api/expenses/${user_id}`)
         .then((res) => res.json())
         .then((resJson) => {
-          const parseDate = (expense) => ({
-            id: expense.id,
-            date: parseInt(expense.date),
-            name: expense.name,
-            description: expense.description,
-            cost: expense.cost,
-            category: expense.category,
-            userID: expense.userID
-          })
-          const serverExpenses = resJson.map((expense) => {
-            return parseDate(expense)
-          })
-          this.setState({
-            expenses: serverExpenses
-          })
+          if(resJson.length == undefined) {
+            this.setState({
+              expenses: []
+            })
+          }
+          else
+          {
+            const parseDate = (expense) => ({
+              id: expense.id,
+              date: parseInt(expense.date),
+              name: expense.name,
+              description: expense.description,
+              cost: expense.cost,
+              category: expense.category,
+              userID: expense.userID
+            })
+            const serverExpenses = resJson.map((expense) => {
+              return parseDate(expense)
+            })
+            this.setState({
+              expenses: serverExpenses
+            })
+          }
         })
 
       fetch(`${config.API_ENDPOINT}/api/categories/${user_id}`)
         .then((res) => res.json())
         .then((resJson) => {
-          const serverCategories = resJson.map((sCategory) => {
-            const newServerCategories = {
-              id: uuid(),
-              name: sCategory.category,
-            }
-            return newServerCategories;
-          })
-          this.setState({
-            categories: serverCategories
-          })
+          if(resJson.length == undefined) {
+            this.setState({
+              categories: []
+            })
+          }
+          else
+          {
+            const serverCategories = resJson.map((sCategory) => {
+              const newServerCategories = {
+                id: uuid(),
+                name: sCategory.category,
+              }
+              return newServerCategories;
+            })
+            this.setState({
+              categories: serverCategories
+            })
+          }
         })
 
       fetch(`${config.API_ENDPOINT}/api/budgets/${user_id}`)

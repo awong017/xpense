@@ -38,7 +38,8 @@ class SummaryList extends Component {
                         name={expense.name}
                         category={expense.category}
                         amount={expense.cost}
-                        />)}
+                    />
+                )}
                 <SummaryTotal />
             </div>
         );

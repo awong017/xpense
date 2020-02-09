@@ -12,6 +12,10 @@
     padding-left: 0px;
 }
 
+.summary-item:last-child {
+    border-top: solid 2px white;
+}
+
 .summary-list-item {
     margin-top: 25px;
     margin-bottom: 25px;
