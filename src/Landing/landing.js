@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import LandingNav from '../LandingNav/landingNav';
-import { Link } from 'react-router-dom';
 import ApiContext from '../ApiContext';
 import './landing.css';
 

@@ -148,7 +148,7 @@ class App extends Component {
       fetch(`${config.API_ENDPOINT}/api/expenses/${user_id}`)
         .then((res) => res.json())
         .then((resJson) => {
-          if(resJson.length == undefined) {
+          if(resJson.length === undefined) {
             this.setState({
               expenses: []
             })
@@ -176,7 +176,7 @@ class App extends Component {
       fetch(`${config.API_ENDPOINT}/api/categories/${user_id}`)
         .then((res) => res.json())
         .then((resJson) => {
-          if(resJson.length == undefined) {
+          if(resJson.length === undefined) {
             this.setState({
               categories: []
             })
@@ -410,10 +410,9 @@ class App extends Component {
         }
         return res.json();
       })
-    }
-    else
-    {
-
+      }
+      else
+      {
       const remainingExpenses = expenses.filter((expense) => {
         return expense.id !== id
       })
@@ -505,8 +504,8 @@ class App extends Component {
   }  
 
 
-  filterCategory = (selectedCategory, search) => {
-    const { expenses, filteredExpenses } = this.state;
+  filterCategory = (selectedCategory) => {
+    const { expenses } = this.state;
 
     const categoryGroup = expenses.filter((expense) => {
       return expense.category === selectedCategory
@@ -517,16 +516,6 @@ class App extends Component {
         filteredExpenses: categoryGroup
       })
     }
-
-    // else if(selectedCategory==="All" && filteredExpenses > 0) {
-    //   const searchFilter = filteredExpenses.filter((expense) => {
-    //     return (expense.name.toLowerCase()).includes(search.toLowerCase());
-    //   })
-    //   this.setState({
-    //     filteredExpenses: searchFilter
-    //   })
-    // }
-
     else
     {
       this.setState({
@@ -561,11 +550,7 @@ class App extends Component {
     }
   }
 
-  // Method for adding new expenses
-
   handleAddExpense = (event, name, description, cost, category) => {
-
-    const {expenses, goals } = this.state;
 
     event.preventDefault();
 
@@ -594,7 +579,6 @@ class App extends Component {
     }
 
     else
-
     {
       this.setState({
         nameError: "",
@@ -646,38 +630,6 @@ class App extends Component {
           })
 
       this.addCategory(category);
-
-      // const checkBudgetCategory = goals.some((goal) => {
-      //   return goal.category.toLowerCase() === category.toLowerCase()
-      // })
-
-      // if(checkBudgetCategory === true) {
-      //   const findBudgetCategory = goals.find((goal) => {
-      //     return goal.category.toLowerCase() === category.toLowerCase()
-      //   })
-
-      //   const filteredExpenses = expenses.filter((expense) => {
-      //     return expense.category.toLowerCase() === category.toLowerCase()
-      //   })
-      //   const filteredExpenseCosts = filteredExpenses.map((expense) => {
-      //     return expense.cost
-      //   })
-      //   const total = filteredExpenseCosts.reduce((accumulator, currentValue) => {
-      //     return accumulator + currentValue
-      //   }, 0)
-
-      //   const reformattedTotal = (Math.round(total*100)/100).toFixed(2);
-        
-      //   if(findBudgetCategory.amount >= reformattedTotal) {
-      //     const categoryTotal = findBudgetCategory.amount - reformattedTotal
-      //     const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
-      //   }
-      //   else
-      //   {
-      //     const categoryTotal = reformattedTotal - findBudgetCategory.amount
-      //     const reformattedCategoryTotal = (Math.round(categoryTotal*100)/100).toFixed(2);
-      //   }
-      // }
       this.props.history.push('/summary');
     }
   }
@@ -732,7 +684,6 @@ class App extends Component {
       goals: this.state.goals,
       budgetError: this.state.budgetError,
       timeFrameError: this.state.timeFrameError,
-      goalError: this.state.goalError,
       handleSaveNewProfile: this.handleSaveNewProfile,
       handleUpdateProfile: this.handleUpdateProfile,
       handleLogout: this.handleLogout
