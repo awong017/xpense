@@ -18,6 +18,11 @@ class Profile extends Component {
         })
     }
 
+    hidePassword = (password) => {
+        let transformation = password.split('').map(() => "x");
+        return transformation.join('');
+    }
+
     render() {
 
         const { currentUser, budgetError, timeFrameError, handleUpdateProfile } = this.context;
@@ -35,7 +40,7 @@ class Profile extends Component {
                         </div>
                         <div>
                             <label className="profile-label">Password: </label>
-                            <p className="user-info" type="password">{currentUser.password}</p>
+                            <p className="user-info" type="password">{this.hidePassword(currentUser.password)}</p>
                         </div>
                         <div className="profile-budget">
                             <label className="profile-label">Budget: </label>
