@@ -101,11 +101,11 @@ class App extends Component {
     event.preventDefault();
 
     const checkUserName = users.some((user) => {
-      return user.userName === username
+      return user.userName.toLowerCase() === username.toLowerCase()
     })
 
     const verifyUser = users.find((user) => {
-      return user.userName === username
+      return user.userName.toLowerCase() === username.toLowerCase()
     })
 
 
