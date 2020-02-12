@@ -48,7 +48,7 @@ class Profile extends Component {
                             <input type="text" className="budget-input" onChange={(e) => this.updateProfile(e.target.value, timeFrame)} placeholder="USD"></input>
                             <p className="budget-text">per</p>
                             <select className = "budget-timeframe" onChange={(e) => this.updateProfile(budget, e.target.value)}>
-                                <option>--Select Time--</option>
+                                <option>--Select--</option>
                                 <option>Day</option>
                                 <option>Week</option>
                                 <option>Month</option>
@@ -57,8 +57,8 @@ class Profile extends Component {
                             <div className="error">{budgetError}</div>
                             <div className="error">{timeFrameError}</div>
                         </div>
-                        <div className="save">
-                            <input type="submit" className="save-button" value="Update"/>
+                        <div className="profile-save">
+                            <input type="submit" className="profile-save-button" value="Update"/>
                         </div>
                     </form>
                 </div>

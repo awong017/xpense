@@ -73,63 +73,7 @@
     color: white;
 }
 
-.goals-section {
-    border-top: lightskyblue dotted 5px;
-    padding: 0;
-}
-
-.goals-label {
-    display: block;
-    margin-top: 20px;
-    margin-left: 20px;
-    text-decoration: underline;
-}
-
-.goal {
-    margin-top: 10px;
-}
-
-.goal-dollar-sign {
-    display: inline;
-    margin-left: 40px;
-}
-
-
-.goal-input {
-    border: purple;
-    background-color: lightgray;
-    padding: 5px 5px;
-    color: white;
-    font-size: 14px;
-    text-align: left;
-    margin-left: 10px;
-    width: 25%;
-}
-
-.goal-text-1 {
-    margin-left: 20px;
-}
-
-.goal-text-2 {
-    display: inline;
-    margin-left: 20px;
-}
-
-.select-category {
-    margin-top: 0px;
-    margin-left: 20px;
-    background-color: lightgrey;
-    padding: 5px 5px;
-    font-size: 14px;
-    color: white;
-}
-
-.category-menu {
-    display: inline;
-}
-
-.save-button {
-    margin-top: 25px;
+.profile-save-button {
     padding: 5px 10px;
     border-radius: 10px;
     color: white;
@@ -138,14 +82,14 @@
     font-size: 18px;
 }
 
-.save-button:hover {
+.profile-save-button:hover {
     cursor: pointer;
     border: #82E0AA;
     background-color: pink;
     transition: 0.1s;
 }
 
-.save {
+.profile-save {
     text-align: center;
     margin-top: 50px;
 }
@@ -156,7 +100,7 @@
 
 @media screen and (max-width: 500px) {
     .profile {
-        margin-top: 150px;
+        margin-top: 100px;
         width: 75%;
     }
 
@@ -168,7 +112,11 @@
         font-size: 18px;
     }
 
-    .save-button {
+    .profile-save {
+        padding: 0px 0px;
+    }
+
+    .profile-save-button {
         font-size: 16px;
     }
 }

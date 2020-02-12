@@ -22,15 +22,19 @@
 
     .welcome {
         margin-left: 0px;
-        margin-bottom: 75px;
+        margin-bottom: 50px;
     }
 
     .home {
         display: block;
     }
 
+    .dollars-spent {
+        margin-bottom: 10px;
+    }
+
     .budget-dollars {
         text-align: center;
-        margin-top: 25px;
+        margin-top: 10px;
     }
 }

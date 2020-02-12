@@ -46,8 +46,8 @@ class NewProfile extends Component {
                             <div className="error">{budgetError}</div>
                             <div className="error">{timeFrameError}</div>
                         </div>
-                        <div className="save">
-                            <input type="submit" className="save-button" value="Get Started!"/>
+                        <div className="new-profile-save">
+                            <input type="submit" className="new-profile-save-button" value="Get Started!"/>
                         </div>
                     </form>
                 </div>
