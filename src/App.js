@@ -108,7 +108,6 @@ class App extends Component {
       return user.userName.toLowerCase() === username.toLowerCase()
     })
 
-
     if(!username) {
       this.setState({
         userNameError: "Please enter a user name"
@@ -140,7 +139,7 @@ class App extends Component {
       })
 
       const loggedUser = users.find((user) => {
-        return user.userName === username;
+        return user.userName.toLowerCase() === username.toLowerCase();
       })
 
       const user_id = loggedUser.id
@@ -225,7 +224,7 @@ class App extends Component {
     event.preventDefault();
 
     const checkUserName = users.some((user) => {
-      return user.userName === username
+      return user.userName.toLowerCase() === username.toLowerCase()
     })
 
     if(!username) {
