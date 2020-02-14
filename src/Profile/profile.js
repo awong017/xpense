@@ -19,8 +19,7 @@ class Profile extends Component {
     }
 
     hidePassword = (password) => {
-        let transformation = password.split('').map(() => "x");
-        return transformation.join('');
+      return password.replace(/\w/g, "x");
     }
 
     render() {
