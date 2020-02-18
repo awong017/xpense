@@ -30,16 +30,18 @@ class SummaryList extends Component {
                     <li className="summary-list-item category-list-item">Category</li>
                     <li className="summary-list-item">Amount</li>
                 </ul>
-                {this.listedExpenses(currentCategory, filteredExpenses).map(expense => 
-                    <SummaryItem 
-                        key={expense.id}
-                        id={expense.id}
-                        date={expense.date}
-                        name={expense.name}
-                        category={expense.category}
-                        amount={expense.cost}
-                    />
-                )}
+                <div className="summary-item-group">
+                    {this.listedExpenses(currentCategory, filteredExpenses).map(expense => 
+                        <SummaryItem 
+                            key={expense.id}
+                            id={expense.id}
+                            date={expense.date}
+                            name={expense.name}
+                            category={expense.category}
+                            amount={expense.cost}
+                        />
+                    )}
+                </div>
                 <SummaryTotal />
             </div>
         );

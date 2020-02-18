@@ -12,10 +12,6 @@
     border-bottom: 2px solid white;
 }
 
-.summary-item:nth-child(even) {
-    background: gray;
-}
-
 .delete-button {
     color: white;
     background: transparent;
