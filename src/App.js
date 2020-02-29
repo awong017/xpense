@@ -36,63 +36,111 @@ class App extends Component {
     timeFrameError: "",
   };
 
-  handleUpdateProfile = (event, budgetInput, timeFrame) => {
+  // Method for adding an expense to the expense summary. Used in
+  // the AddExpense component.
 
+  handleAddExpense = (event, name, description, cost, category) => {
     event.preventDefault();
 
-    const { budget } = this.state;
-
-    if(!budgetInput) {
+    if(!name) {
       this.setState({
-        budgetError: "Please input a desired budget"
+        nameError: "Please provide a name"
       })
     }
-    else if(!timeFrame) {
+    else if(!description) {
       this.setState({
-        budgetError: "",
-        timeFrameError: "Please select a time frame"
+        descriptionError: "Please provide a description"
+      })
+    }
+    else if(!cost) {
+      this.setState({
+        costError: "Please provide a cost"
+      })
+    }
+    else if(!category) {
+      this.setState({
+        categoryError: "Please provide a category"
       })
     }
     else
     {
       this.setState({
-        budget: {
-          id: budget.id,
-          budget: budgetInput,
-          userID: budget.userID,
-          timeFrame: timeFrame
-        },
-        budgetError: "",
-        timeFrameError: ""
+        nameError: "",
+        descriptionError: "",
+        costError: "",
+        categoryError: "",
       })
 
-      let url = `${config.API_ENDPOINT}/api/budgets/${budget.userID}/${budgetInput}/${timeFrame}`
-
-      let options = {
-        method: 'PUT'
+      const newCost = Number(cost).toFixed(2);
+      const newExpense = {
+        id: uuid(),
+        date: Date.now(),
+        name: name,
+        description: description,
+        cost: parseFloat(newCost),
+        category: category,
+        userID: this.state.currentUser.id
       }
 
-      fetch(url, options)
-      .then(res => {
-          if(!res.ok) {
-              throw new Error('Something went wrong, please try again later');
-          }
+      this.setState((prevState) => {
+        prevState.expenses.push(newExpense)
       })
-      this.props.history.push('/home')
+
+      const postExpense = {
+        id: uuid(),
+        date: Date.now(),
+        name: name,
+        description: description,
+        cost: parseFloat(newCost),
+        category: category,
+        userid: this.state.currentUser.id
+      }
+
+      const url = config.API_ENDPOINT + '/api/expenses';
+
+      const options ={
+          method: 'POST',
+          body: JSON.stringify(postExpense),
+          headers: {
+              "Content-Type": "application/json"
+          }
+      };
+
+      fetch(url, options)
+          .then(res => {
+              if(!res.ok) {
+                  throw new Error('Something went wrong, please try again later');
+              }
+              return res.json();
+          })
+
+      this.addCategory(category);
+      this.props.history.push('/summary');
     }
   }
 
-  handleLogout = () => {
+  // Method for adding a category while adding an expense to the expense summary. 
+  // Used in the AddExpense component.
 
-    this.setState({
-      currentUser: {},
-      expenses: [],
-      categories: [],
-      currentCategory: "All",
-      filteredExpenses: [],
-      goals: [],
+  addCategory = (category) => {
+    const newCategory = this.state.expenses.some((expense) => {
+      return expense.category === category
     })
+    if(newCategory===false) {
+
+      const addedCategory = {
+        id: uuid(),
+        name: category
+      }
+
+      this.setState((prevState) => {
+        prevState.categories.push(addedCategory);
+      })
+    }
   }
+
+  // Method for logging into a user account. 
+  // Used in the Login component.
 
   handleLogin = (event, username, password) => {
 
@@ -217,6 +265,25 @@ class App extends Component {
     }
   }
 
+  // Method for logging out of a user account. 
+  // Used in all Nav components except for the landingNav,
+  // loginNav, and newProfileNav.
+
+  handleLogout = () => {
+
+    this.setState({
+      currentUser: {},
+      expenses: [],
+      categories: [],
+      currentCategory: "All",
+      filteredExpenses: [],
+      goals: [],
+    })
+  }
+
+  // Method for signing up for a new user account. 
+  // Used in the login component.
+
   handleSignUp = (event, username, password) => {
 
     const { users } = this.state
@@ -292,6 +359,9 @@ class App extends Component {
       this.props.history.push('/NewProfile')
     }
   }
+
+  // Method for creating a new user profile. 
+  // Used in the newProfile component.
 
   handleSaveNewProfile = (event, budgetInput, timeFrame, goal1, category1, goal2, category2) => {
 
@@ -369,6 +439,140 @@ class App extends Component {
       this.props.history.push('/home')
     }
   }
+
+  // Method for updating user budget. 
+  // Used in the profile component.
+
+  handleUpdateProfile = (event, budgetInput, timeFrame) => {
+
+    event.preventDefault();
+
+    const { budget } = this.state;
+
+    if(!budgetInput) {
+      this.setState({
+        budgetError: "Please input a desired budget"
+      })
+    }
+    else if(!timeFrame) {
+      this.setState({
+        budgetError: "",
+        timeFrameError: "Please select a time frame"
+      })
+    }
+    else
+    {
+      this.setState({
+        budget: {
+          id: budget.id,
+          budget: budgetInput,
+          userID: budget.userID,
+          timeFrame: timeFrame
+        },
+        budgetError: "",
+        timeFrameError: ""
+      })
+
+      let url = `${config.API_ENDPOINT}/api/budgets/${budget.userID}/${budgetInput}/${timeFrame}`
+
+      let options = {
+        method: 'PUT'
+      }
+
+      fetch(url, options)
+      .then(res => {
+          if(!res.ok) {
+              throw new Error('Something went wrong, please try again later');
+          }
+      })
+      this.props.history.push('/home')
+    }
+  }
+
+  // Method for filtering expenses by date.
+  // Used in filterDate component.
+
+  filterDate = (startDate, endDate) => {
+    const { expenses, currentCategory } = this.state;
+
+    if(currentCategory === "All") {
+      const dateFilter = expenses.filter((expense) => {
+        return startDate <= expense.date && expense.date <= endDate
+      }) 
+  
+      this.setState({
+        filteredExpenses: dateFilter
+      })
+    }
+    else
+    {
+      const categoryFilter = expenses.filter((expense) => {
+        return expense.category === currentCategory
+      })
+
+      const dateFilter = categoryFilter.filter((expense) => {
+        return startDate <= expense.date && expense.date <= endDate
+      }) 
+  
+      this.setState({
+        filteredExpenses: dateFilter
+      })
+    }
+  }
+
+  // Method for filtering expenses by category.
+  // Used in categoryFilter component.
+
+  filterCategory = (selectedCategory) => {
+    const { expenses } = this.state;
+    const categoryGroup = expenses.filter((expense) => {
+      return expense.category === selectedCategory
+    });
+
+    if(selectedCategory!=="All") {
+      this.setState({
+        filteredExpenses: categoryGroup
+      })
+    }
+    else
+    {
+      this.setState({
+        filteredExpenses: []
+      })
+    }
+
+    this.setState({
+      currentCategory: selectedCategory
+    })
+  }
+
+  // Method for searching for expenses by the expense name.
+  // Used in summaryFilters component.
+
+  handleSearch = (search) => {
+    const { currentCategory, expenses } = this.state;
+
+    if(currentCategory==="All") {
+      const searchFilter = expenses.filter((expense) => {
+        return (expense.name.toLowerCase()).includes(search.toLowerCase());
+      })
+      this.setState({
+        filteredExpenses: searchFilter
+      })
+    }  
+    else
+    {
+      const searchFilter = expenses.filter((expense) => {
+        return expense.category === currentCategory && (expense.name.toLowerCase()).includes(search.toLowerCase());
+    })
+    this.setState({
+      filteredExpenses: searchFilter
+      })
+    }
+  }
+
+  // Method for deleting expenses.
+  // Used in summaryListItem component.
 
   handleDelete = (id, category) => {
     const { expenses, categories, currentCategory, filteredExpenses } = this.state;
@@ -457,182 +661,6 @@ class App extends Component {
     }
   }
 
-  filterDate = (startDate, endDate) => {
-    const { expenses, currentCategory } = this.state;
-
-    if(currentCategory === "All") {
-      const dateFilter = expenses.filter((expense) => {
-        return startDate <= expense.date && expense.date <= endDate
-      }) 
-  
-      this.setState({
-        filteredExpenses: dateFilter
-      })
-    }
-    else
-    {
-      const categoryFilter = expenses.filter((expense) => {
-        return expense.category === currentCategory
-      })
-
-      const dateFilter = categoryFilter.filter((expense) => {
-        return startDate <= expense.date && expense.date <= endDate
-      }) 
-  
-      this.setState({
-        filteredExpenses: dateFilter
-      })
-    }
-  }
-
-  addCategory = (category) => {
-    const newCategory = this.state.expenses.some((expense) => {
-      return expense.category === category
-    })
-    if(newCategory===false) {
-
-      const addedCategory = {
-        id: uuid(),
-        name: category
-      }
-
-      this.setState((prevState) => {
-        prevState.categories.push(addedCategory);
-      })
-    }
-  }  
-
-
-  filterCategory = (selectedCategory) => {
-    const { expenses } = this.state;
-
-    const categoryGroup = expenses.filter((expense) => {
-      return expense.category === selectedCategory
-    });
-
-    if(selectedCategory!=="All") {
-      this.setState({
-        filteredExpenses: categoryGroup
-      })
-    }
-    else
-    {
-      this.setState({
-        filteredExpenses: []
-      })
-    }
-
-    this.setState({
-      currentCategory: selectedCategory
-    })
-  }
-
-  handleSearch = (search) => {
-    const { currentCategory, expenses } = this.state;
-
-    if(currentCategory==="All") {
-      const searchFilter = expenses.filter((expense) => {
-        return (expense.name.toLowerCase()).includes(search.toLowerCase());
-      })
-      this.setState({
-        filteredExpenses: searchFilter
-      })
-    }  
-    else
-    {
-      const searchFilter = expenses.filter((expense) => {
-        return expense.category === currentCategory && (expense.name.toLowerCase()).includes(search.toLowerCase());
-    })
-    this.setState({
-      filteredExpenses: searchFilter
-      })
-    }
-  }
-
-  handleAddExpense = (event, name, description, cost, category) => {
-
-    event.preventDefault();
-
-    if(!name) {
-      this.setState({
-        nameError: "Please provide a name"
-      })
-    }
-
-    else if(!description) {
-      this.setState({
-        descriptionError: "Please provide a description"
-      })
-    }
-
-    else if(!cost) {
-      this.setState({
-        costError: "Please provide a cost"
-      })
-    }
-
-    else if(!category) {
-      this.setState({
-        categoryError: "Please provide a category"
-      })
-    }
-
-    else
-    {
-      this.setState({
-        nameError: "",
-        descriptionError: "",
-        costError: "",
-        categoryError: "",
-      })
-
-      const newCost = Number(cost).toFixed(2);
-
-      const newExpense = {
-        id: uuid(),
-        date: Date.now(),
-        name: name,
-        description: description,
-        cost: parseFloat(newCost),
-        category: category,
-        userID: this.state.currentUser.id
-      }
-
-      this.setState((prevState) => {
-        prevState.expenses.push(newExpense)
-      })
-
-      const postExpense = {
-        id: uuid(),
-        date: Date.now(),
-        name: name,
-        description: description,
-        cost: parseFloat(newCost),
-        category: category,
-        userid: this.state.currentUser.id
-      }
-      const url = config.API_ENDPOINT + '/api/expenses';
-      const options ={
-          method: 'POST',
-          body: JSON.stringify(postExpense),
-          headers: {
-              "Content-Type": "application/json"
-          }
-      };
-
-      fetch(url, options)
-          .then(res => {
-              if(!res.ok) {
-                  throw new Error('Something went wrong, please try again later');
-              }
-              return res.json();
-          })
-
-      this.addCategory(category);
-      this.props.history.push('/summary');
-    }
-  }
-
   renderRoutes() {
     return (
       <>
@@ -648,17 +676,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-  
     fetch(`${config.API_ENDPOINT}/api/users`)
       .then((res) => res.json())
       .then((resJson) => this.setState({
         users: resJson
       })
     )
-}
+  }
 
   render() {
-
     const value={
       users: this.state.users,
       userNameError: this.state.userNameError,
@@ -694,7 +720,6 @@ class App extends Component {
       </ApiContext.Provider>
     );
   }
-
 }
 
 export default withRouter(App);
