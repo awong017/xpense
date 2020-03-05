@@ -209,7 +209,7 @@ section:nth-child(even) {
 @media screen and (max-width:500px) {
 
   .landing-title {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   h2 {
@@ -222,7 +222,7 @@ section:nth-child(even) {
 
   .header {
     width: 50%;
-    margin-bottom: 25px;
+    margin-bottom: 100px;
   }
 
   .landing-section {
