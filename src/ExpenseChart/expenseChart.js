@@ -62,11 +62,10 @@ class ExpenseChart extends Component {
       }
 
     render() {
+        
         const { expenses, budget } = this.context
 
         const chartCategories = this.getChartCategories(this.getChartExpenses(expenses, budget.timeFrame), this.makeUnique)
-
-        console.log("Chart Expenses: ", this.getChartExpenses(expenses, budget.timeFrame));
 
         return (
             <div className="expense-chart">

@@ -20,7 +20,9 @@ class SummaryItem extends Component {
                     <li className="summary-detail">{name}</li>
                     <li className="summary-detail category-detail">{category}</li>
                     <li className="summary-detail">${formattedAmount}</li>
-                    <li><button className="delete-button" onClick = {()=>handleDelete(id, category)}>X</button></li>
+                    <li className="summary-detail-button">
+                        <button className="delete-button" onClick = {()=>handleDelete(id, category)}>X</button>
+                    </li>
                 </ul>
             </div>
         );

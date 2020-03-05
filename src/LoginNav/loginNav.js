@@ -5,7 +5,7 @@ import './loginNav.css';
 class LoginNav extends Component {
     render() {
         return (
-            <div className="login-nav">
+            <div className="nav">
                 <ul className="login-nav-ul">
                     <li className="login-nav-li">
                         <Link to={"/"}>

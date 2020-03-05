@@ -5,7 +5,7 @@ import './summaryNav.css';
 class SummaryNav extends Component {
     render() {
         return (
-            <div className="summary-nav">
+            <div className="nav">
                 <ul className="summary-nav-ul">
                     <li className="summary-nav-li">
                         <Link to={"/home"}>

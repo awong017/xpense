@@ -61,14 +61,20 @@ legend {
 @media screen and (max-width: 500px) {
     .login-form {
         margin-top: 200px;
+        padding: 10px;
         width: 75%;
     }
 
     .login-label {
-        font-size: 18px;
+        font-size: 12px;
+    }
+
+    .login-input {
+        font-size: 12px;
+
     }
 
     .login-button {
-        font-size: 16px;
+        font-size: 12px;
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { DateRange } from 'react-date-range';
 import ApiContext from '../ApiContext';
+import './dateFilter.css';
  
 class DateFilter extends Component {
 
@@ -17,7 +18,7 @@ class DateFilter extends Component {
  
     render(){
         return (
-            <div>
+            <div className="date-filter">
                 <DateRange
                     onChange={this.handleSelect}
                 />

@@ -1,5 +1,5 @@
 .add-expense {
-    margin-top: 250px;
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     border: 1px lightskyblue solid;
@@ -101,16 +101,41 @@
 }
 
 @media screen and (max-width: 500px) {
+    
     .add-expense {
         width: 75%;
         margin-top: 100px;
     }
 
     .add-expense-label {
-        font-size: 18px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .add-expense-field {
+        font-size: 12px;
+    }
+
+    .cost-input {
+        padding: 5px 5px;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .category-input {
+        font-size: 12px;
+    }
+
+    .add-expense-category {
+        font-size: 12px;
     }
 
     .add {
-        margin-top: 25px;
+        margin-top: 0px;
+    }
+
+    .submit-new-expense {
+        margin-top: 20px;
+        font-size: 12px;
     }
 }

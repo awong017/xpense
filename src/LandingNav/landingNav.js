@@ -5,7 +5,7 @@ import './landingNav.css';
 class LandingNav extends Component {
     render() {
         return (
-            <div className="landing-nav">
+            <div className="nav">
                 <ul className="landing-nav-ul">
                     <li className="landing-nav-li">
                         <Link to={"/"}>

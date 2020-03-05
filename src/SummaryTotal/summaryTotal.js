@@ -27,7 +27,7 @@ class SummaryTotal extends Component {
 
         return (
             <div className="summary-total">
-                <h3>Total: ${reformattedTotal}</h3>
+                <h3 className="total">Total: ${reformattedTotal}</h3>
             </div>
         );
     }

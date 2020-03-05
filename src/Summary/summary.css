@@ -2,3 +2,10 @@
     margin-top: 100px;
     text-align: center;
 }
+
+@media screen and (max-width: 500px) {
+    
+    .summary-title {
+        font-size: 18px;
+    }
+}

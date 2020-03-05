@@ -45,8 +45,17 @@ select {
 }
 
 @media screen and (max-width: 500px) {
+
+    .category-filter-label {
+        font-size: 12px;
+    }
+
     .summary-category-filter {
         display: block;
+    }
+
+    .search-filter-label {
+        font-size: 12px;
     }
 
     .summary-search-filter {

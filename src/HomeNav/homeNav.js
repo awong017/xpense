@@ -13,7 +13,7 @@ class HomeNav extends Component {
 
         return (
 
-            <div className="home-nav">
+            <div className="nav">
                 <ul className="home-nav-ul">
                     <li className="home-nav-li">
                         <Link to={"/profile"}>

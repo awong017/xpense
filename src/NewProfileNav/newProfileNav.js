@@ -5,7 +5,7 @@ import './newProfileNav.css';
 class NewProfileNav extends Component {
     render() {
         return (
-            <div className="new-profile-nav">
+            <div className="nav">
                 <ul className="new-profile-nav-ul">
                     <li className="new-profile-nav-li">
                         <Link to={"/"}>

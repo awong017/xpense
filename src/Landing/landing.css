@@ -4,7 +4,9 @@
 
 .landing {
   margin-top: 150px;
-  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: white;
 }
 
 body {
@@ -14,47 +16,119 @@ body {
   line-height: 1.5;
   }
 
+.header {
+  margin-left: 100px;
+  width: 25%;
+  padding: 50px 50px;
+  border-radius: 50%;
+  background-color: #82E0AA;
+  color: white;
+}
+
+.title {
+  background-color: lightgreen;
+  color: white;
+  width: 25%;
+}
+
 .landing-title {
+  text-align: center;
   font-size: 300%;
   font-style: italic;
   }
 
 .landing-heading {
-  margin-bottom: 50px;
+  text-align: center;
 }
   
 .landing-section {
-  min-height: 200px;
+  min-height: 100px;
   padding: 50px 50px;
-  margin-bottom: 50px;
+  width: 60%;
+  border-radius: 50%;
   color: white;
 }
 
+section:nth-child(even) {
+  margin-left: 40%;
+}
+
 .landing-section-heading {
-  margin-top: 0px;
+  text-align: center;
   margin-bottom: 25px;
 }
 
 .how-it-works {
-    background-color: purple;
-    padding-left: 50px;
-    padding-right: 50px;
-  }
+  background-color: purple;
+}
+
+.content-one {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  padding: 20px 20px;
+}
+
+.image-one {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 90%;
+}
 
 .view-expenses {
     background-color: salmon;
   }
 
+.content-two {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  padding: 20px 20px;
+}
+
+.image-two {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 100%;
+}
+
 .know-where-you-stand {
-    background-color: lightskyblue;
-  }
+  background-color: lightskyblue;
+}
+
+.content-three {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  padding: 20px 20px;
+}
+
+.image-three {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 90%
+}
 
 .organize-your-expenses {
     background-color: lightgreen;
-  }
+}
+
+.content-four {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  padding: 20px 20px;
+}
+
+.image-four {
+  border-radius: 50%;
+  width: 90%;
+}
 
 .sign-up-button {
-  margin-top: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
   margin-bottom: 25px;
   border-radius: 5px;
   padding: 15px 30px;
@@ -70,22 +144,99 @@ body {
   transition: 0.3s; 
 }
 
-  @media screen and (max-width:500px) {
+@media screen and (max-width: 960px) {
 
-    h2 {
-      font-size: 26px;
-    }
-
-    h3 {
-      font-size: 24px;
-    }
-
-    p {
-      font-size: 18px;
-    }
-
-    .sign-up-button {
-      font-size: 16px;
-      padding: 5px 10px;
-    }
+  .header {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    width: 50%;
   }
+  
+  .landing {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .landing-section {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+  }
+
+  section:nth-child(even) {
+    margin-left: auto;
+  }
+  
+  .content-one {
+    display: block;
+    text-align: center;
+  }
+
+  .image-one {
+    width: 70%;
+  }
+
+  .content-two {
+    display: block;
+    text-align: center;
+  }
+
+  .image-two {
+    width: 70%;
+  }
+
+  .content-three {
+    display: block;
+    text-align: center;
+  }
+
+  .image-three {
+    width: 70%;
+  }
+
+  .content-four {
+    display: block;
+    text-align: center;
+  }
+
+  .image-four {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width:500px) {
+
+  .landing-title {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .header {
+    width: 50%;
+    margin-bottom: 25px;
+  }
+
+  .landing-section {
+    margin-bottom: 25px;
+    width: 90%;
+    padding: 20px 20px;
+  }
+
+  .landing-section-heading {
+    margin-bottom: 10px;
+  }
+
+  .sign-up-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}

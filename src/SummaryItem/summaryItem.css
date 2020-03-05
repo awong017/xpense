@@ -2,14 +2,12 @@
     display: grid;
     grid-template-columns: 15% 40% 20% 15% 10%;
     font-size: 75%;
-    text-align: center;
     list-style: none;
     padding-left: 0px;
-    padding-bottom: 10px;
-    padding-top: 10px;
     margin-top: 0px;
-    margin-bottom: 0px;
-    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .delete-button {
@@ -20,6 +18,8 @@
     width: 30px;
     height: 30px;
     padding: 5px 5px;
+    margin-bottom: auto;
+    margin-top: auto;
 }
 
 .delete-button:hover {
@@ -36,5 +36,17 @@
 
     .summary-item {
         grid-template-columns: 25% 35% 25% 15%;
+    }
+
+    .summary-detail {
+        font-size: 12px;
+    }
+
+    .delete-button {
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        padding: 2px 2px;
+        font-size: 10px;
     }
 }

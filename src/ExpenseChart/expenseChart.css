@@ -1,0 +1,8 @@
+@media screen and (max-width: 500px) {
+
+    .expense-chart {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+}

@@ -29,11 +29,17 @@
         display: block;
     }
 
+    .greeting {
+        font-size: 18px;
+    }
+
     .dollars-spent {
+        font-size: 12px;
         margin-bottom: 10px;
     }
 
     .budget-dollars {
+        font-size: 12px;
         text-align: center;
         margin-top: 10px;
     }

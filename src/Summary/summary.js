@@ -11,7 +11,7 @@ class Summary extends Component {
             <div>
                 <SummaryNav />
                 <div className="summary">
-                    <h1>Expenses History</h1>
+                    <h1 className="summary-title">Expenses Summary</h1>
                     <SummaryFilters />
                     <SummaryList />
                 </div>

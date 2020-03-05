@@ -5,7 +5,7 @@ import './addExpenseNav.css';
 class AddExpenseNav extends Component {
     render() {
         return (
-            <div className="add-expense-nav">
+            <div className="nav">
                 <ul className="add-expense-nav-ul">
                     <li className="add-expense-nav-li">
                         <Link to={"/home"}>

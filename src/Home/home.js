@@ -10,11 +10,11 @@ class Home extends Component {
 
     amountSpent = (timeFrame, spent) => {
         if(timeFrame.toLowerCase() === 'day') {
-            return `You have spent ${spent} today.`
+            return `You have spent $${spent} today.`
         }
         else
         {
-            return `You have spent ${spent} this ${timeFrame.toLowerCase()}.`
+            return `You have spent $${spent} this ${timeFrame.toLowerCase()}.`
         }
     }
 
