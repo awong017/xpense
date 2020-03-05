@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import LandingNav from '../LandingNav/landingNav';
 import ApiContext from '../ApiContext';
-import HowItWorks from './screenshots/how-it-works.png';
-import ViewExpenses from './screenshots/view-expenses.png';
-import KnowWhereYouStand from './screenshots/know-where-you-stand.png';
-import OrganizeYourExpenses from './screenshots/organize-your-expenses.png';
+import HowItWorks from './images/how-it-works.png';
+import ViewExpenses from './images/view-expenses.png';
+import KnowWhereYouStand from './images/know-where-you-stand.png';
+import OrganizeYourExpenses from './images/organize-your-expenses.png';
 import './landing.css';
 
 class Landing extends Component {
