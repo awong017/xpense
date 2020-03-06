@@ -27,6 +27,7 @@ class SummaryList extends Component {
                 <ul className="summary-list">
                     <li className="summary-list-item">Date</li>
                     <li className="summary-list-item">Name</li>
+                    <li className="summary-list-item description-list-item">Description</li>
                     <li className="summary-list-item category-list-item">Category</li>
                     <li className="summary-list-item">Amount</li>
                 </ul>
@@ -37,6 +38,7 @@ class SummaryList extends Component {
                             id={expense.id}
                             date={expense.date}
                             name={expense.name}
+                            description={expense.description}
                             category={expense.category}
                             amount={expense.cost}
                         />

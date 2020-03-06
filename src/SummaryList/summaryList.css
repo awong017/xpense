@@ -7,7 +7,7 @@
 
 .summary-list {
     display: grid;
-    grid-template-columns: 15% 40% 20% 15% 10%;
+    grid-template-columns: 15% 20% 30% 20% 10% 5%;
     list-style: none;
     text-decoration: underline;
     padding-left: 0px;
@@ -19,10 +19,18 @@
     margin-bottom: 15px;
 }
 
-@media screen and (max-width: 500px) {
-    .category-list-item {
+@media screen and (max-width: 1024px) {
+
+    .summary-list {
+        grid-template-columns: 15% 40% 20% 15% 10%;
+    }
+
+    .description-list-item {
         display: none;
     }
+}
+
+@media screen and (max-width: 500px) {
 
     .summary-list {
         grid-template-columns: 25% 35% 25% 15%;
@@ -30,5 +38,9 @@
 
     .summary-list-item {
         font-size: 14px;
+    }
+
+    .category-list-item {
+        display: none;
     }
 }

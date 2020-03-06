@@ -1,6 +1,6 @@
 .summary-item {
     display: grid;
-    grid-template-columns: 15% 40% 20% 15% 10%;
+    grid-template-columns: 15% 20% 30% 20% 10% 5%;
     font-size: 75%;
     list-style: none;
     padding-left: 0px;
@@ -29,13 +29,25 @@
     transition: 0.1s;
 }
 
-@media screen and (max-width: 500px) {
-    .category-detail {
+@media screen and (max-width: 1024px) {
+
+    .summary-item {
+        grid-template-columns: 15% 40% 20% 15% 10%;
+    }
+
+    .description-detail {
         display: none;
     }
+}
+
+@media screen and (max-width: 500px) {
 
     .summary-item {
         grid-template-columns: 25% 35% 25% 15%;
+    }
+
+    .category-detail {
+        display: none;
     }
 
     .summary-detail {

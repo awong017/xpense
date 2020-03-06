@@ -9,7 +9,7 @@ class SummaryItem extends Component {
 
     render() {
 
-        const {id, date, name, category, amount } = this.props;
+        const {id, date, name, description, category, amount } = this.props;
         const { handleDelete } = this.context;
         const formattedAmount = (Math.round(amount*100)/100).toFixed(2);
 
@@ -18,6 +18,7 @@ class SummaryItem extends Component {
                 <ul className="summary-item">
                     <li className="summary-detail">{format(date, 'M/d/yy')}</li>
                     <li className="summary-detail">{name}</li>
+                    <li className="summary-detail description-detail">{description}</li>
                     <li className="summary-detail category-detail">{category}</li>
                     <li className="summary-detail">${formattedAmount}</li>
                     <li className="summary-detail-button">
