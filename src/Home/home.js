@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import HomeNav from '../HomeNav/homeNav';
 import ExpenseChart from '../ExpenseChart/expenseChart';
+import Summary from '../Summary/summary';
 import ApiContext from '../ApiContext';
 import './home.css';
 
@@ -66,18 +67,19 @@ class Home extends Component {
         const reformattedTotal = (Math.round(total*100)/100).toFixed(2);
 
         return (
-            <div className="home">
-                <HomeNav/>
-                <div className="welcome">
+            <div>
+                <HomeNav />
+                <div className="first-glance">
                     <h1 className="greeting">Hey {currentUser.userName}!</h1>
+                    <div className="dollars-spent">
+                        {this.amountSpent(budget.timeFrame, reformattedTotal)}
+                    </div>
+                    <ExpenseChart />
+                    <div className="budget-dollars">
+                        {this.budgetStanding(parseFloat(reformattedTotal), budget.budget)}
+                    </div>
                 </div>
-                <section className="dollars-spent">
-                    {this.amountSpent(budget.timeFrame, reformattedTotal)}
-                </section>
-                <ExpenseChart />
-                <section className="budget-dollars">
-                    {this.budgetStanding(parseFloat(reformattedTotal), budget.budget)}
-                </section>
+                <Summary />
             </div>
         )
     }

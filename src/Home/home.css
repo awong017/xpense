@@ -1,28 +1,25 @@
-.home {
+.first-glance {
+    margin-top: 100px;
     text-align: center;
 }
 
-.welcome {
-    text-align: center;
-    margin-top: 100px;
+.gretting {
     margin-bottom: 100px;
 }
 
 .dollars-spent {
-    text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 24px;
 }
 
 .budget-dollars {
-    text-align: center;
-    margin-top: 50px;
+    margin-top: 24px;
 }
 
 @media screen and (max-width: 500px) {
 
     .welcome {
         margin-left: 0px;
-        margin-bottom: 50px;
+        margin-bottom: 48px;
     }
 
     .home {
@@ -35,12 +32,12 @@
 
     .dollars-spent {
         font-size: 12px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     .budget-dollars {
         font-size: 12px;
         text-align: center;
-        margin-top: 10px;
+        margin-top: 12px;
     }
 }

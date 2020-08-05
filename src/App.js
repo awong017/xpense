@@ -667,7 +667,6 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={Login} />
         <Route path="/home" component={Home} />
-        <Route path="/summary" component={Summary} />
         <Route path="/add" component={AddExpense} />
         <Route path="/profile" component={Profile} />
         <Route path="/newprofile" component={NewProfile} />

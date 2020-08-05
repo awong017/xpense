@@ -18,11 +18,6 @@ class AddExpenseNav extends Component {
                         </Link>
                     </li>
                     <li className="add-expense-nav-li">
-                        <Link to={"/summary"}>
-                            Summary
-                        </Link>
-                    </li>
-                    <li className="add-expense-nav-li">
                         <Link to={"/"}>
                             Log Out
                         </Link>

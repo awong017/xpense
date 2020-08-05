@@ -21,8 +21,8 @@ class HomeNav extends Component {
                         </Link>
                     </li>
                     <li className="home-nav-li">
-                        <Link to={"/summary"}>
-                            Summary
+                        <Link to={"/add"}>
+                            Add Expense
                         </Link>
                     </li>
                     <li className="home-nav-li">

@@ -13,11 +13,6 @@ class ProfileNav extends Component {
                         </Link>
                     </li>
                     <li className="profile-nav-li">
-                        <Link to={"/summary"}>
-                            Summary
-                        </Link>
-                    </li>
-                    <li className="profile-nav-li">
                         <Link to={"/"}>
                             Log Out
                         </Link>
