@@ -18,7 +18,7 @@
     font-family: "Open Sans", sans-serif; 
     border: lightskyblue;
     background-color: lightgrey;
-    padding: 5px 5px;
+    padding: 4px 4px;
     color: white;
     font-size: 14px;
     text-align: left;
@@ -35,10 +35,10 @@
     border: lightskyblue;
     background-color: lightgray;
     color: white;
-    padding: 5px 5px;
+    padding: 4px 4px;
     font-size: 14px;
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     width: 25%;
 }
 
@@ -50,7 +50,7 @@
     margin-top: 0px;
     margin-left: 20px;
     background-color: lightgrey;
-    padding: 5px 5px;
+    padding: 4px 4px;
     font-size: 14px;
     color: white;
 }
@@ -63,18 +63,18 @@
 .category-input {
     border: lightskyblue;
     background-color: lightgrey;
-    padding: 5px 5px;
+    padding: 4px 4px;
     color: white;
     font-size: 14px;
     text-align: left;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     width: 150px;
 }
 
 .submit-new-expense {
-    margin-top: 25px;
-    padding: 5px 10px;
+    margin-top: 24px;
+    padding: 4px 8px;
     color: white;
     background-color: lightblue;
     border: lightblue;
@@ -97,7 +97,7 @@
 
 .add {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 48px;
 }
 
 @media screen and (max-width: 500px) {
@@ -109,7 +109,7 @@
 
     .add-expense-label {
         font-size: 12px;
-        margin-top: 10px;
+        margin-top: 8px;
     }
 
     .add-expense-field {
@@ -117,7 +117,7 @@
     }
 
     .cost-input {
-        padding: 5px 5px;
+        padding: 4px 4px;
         font-size: 12px;
         margin-bottom: 20px;
     }

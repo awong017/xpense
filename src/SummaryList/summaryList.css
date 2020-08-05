@@ -1,5 +1,5 @@
 .summary-expenses {
-    margin-top: 50px;
+    margin-top: 48px;
     background-color: lightskyblue;
     color: white;
     border-radius: 50px;
@@ -15,8 +15,8 @@
 }
 
 .summary-list-item {
-    margin-top: 25px;
-    margin-bottom: 15px;
+    margin-top: 24px;
+    margin-bottom: 16px;
 }
 
 @media screen and (max-width: 1024px) {

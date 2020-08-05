@@ -5,7 +5,7 @@
 
 .home-nav-li {
     display: inline;
-    margin-right: 25px;
+    margin-right: 24px;
 }
 
 @media screen and (max-width: 500px) {

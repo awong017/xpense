@@ -29,7 +29,7 @@
 .profile-input {
     border: purple;
     background-color: lightgray;
-    padding: 5px 5px;
+    padding: 4px 4px;
     font-size: 14px;
     text-align: left;
     margin-left: 20px;
@@ -40,7 +40,7 @@
     float: left;
     margin-top: 0px;
     margin-left: 20px;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 .profile-budget {
@@ -51,11 +51,11 @@
     border: purple;
     background-color: lightgray;
     color: white;
-    padding: 5px 5px;
+    padding: 4px 4px;
     font-size: 14px;
     text-align: left;
-    margin-left: 10px;
-    margin-bottom: 30px;
+    margin-left: 8px;
+    margin-bottom: 28px;
     width: 25%;
 }
 
@@ -68,13 +68,13 @@
     margin-top: 0px;
     margin-left: 20px;
     background-color: lightgrey;
-    padding: 5px 5px;
+    padding: 4px 4px;
     font-size: 14px;
     color: white;
 }
 
 .profile-save-button {
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 10px;
     color: white;
     background-color: plum;
@@ -91,7 +91,7 @@
 
 .profile-save {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 48px;
 }
 
 .error {
@@ -114,8 +114,8 @@
 
     .dollar-sign {
         float: left;
-        margin-top: 10px;
-        margin-right: 5px;
+        margin-top: 8px;
+        margin-right: 4px;
         font-size: 12px;
     }
 

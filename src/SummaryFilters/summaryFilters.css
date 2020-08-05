@@ -3,7 +3,7 @@
 }
 
 .category-filter-label {
-    margin-left: 10px;
+    margin-left: 8px;
 }
 
 .filter {
@@ -17,13 +17,13 @@
 }
 
 .search-filter-label {
-    margin-left: 10px;
+    margin-left: 8px;
 }
 
 .search {
-    margin-left: 5px;
-    border-radius: 5px;
-    padding: 5px 10px;
+    margin-left: 4px;
+    border-radius: 4px;
+    padding: 4px 8px;
     border: 1px solid  lightblue;
     background-color: lightblue;
     color: white;
