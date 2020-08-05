@@ -23,8 +23,8 @@ class SummaryList extends Component {
         const { currentCategory, filteredExpenses } = this.context;
 
         return (
-            <div className="summary-expenses">
-                <ul className="summary-list">
+            <div className="summary-list">
+                <ul className="summary-expenses">
                     <li className="summary-list-item">Date</li>
                     <li className="summary-list-item">Name</li>
                     <li className="summary-list-item description-list-item">Description</li>

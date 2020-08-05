@@ -1,11 +1,12 @@
-.summary-expenses {
+.summary-list {
     margin-top: 48px;
+    text-align: center;
     background-color: lightskyblue;
     color: white;
     border-radius: 50px;
 }
 
-.summary-list {
+.summary-expenses {
     display: grid;
     grid-template-columns: 15% 20% 30% 20% 10% 5%;
     list-style: none;
@@ -21,7 +22,7 @@
 
 @media screen and (max-width: 1024px) {
 
-    .summary-list {
+    .summary-expenses {
         grid-template-columns: 15% 40% 20% 15% 10%;
     }
 
@@ -32,7 +33,7 @@
 
 @media screen and (max-width: 500px) {
 
-    .summary-list {
+    .summary-expenses {
         grid-template-columns: 25% 35% 25% 15%;
     }
 

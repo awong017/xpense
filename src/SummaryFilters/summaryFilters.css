@@ -1,3 +1,7 @@
+.summary-filters {
+    text-align: center;
+}
+
 .summary-category-filter {
     display: inline-block;
 }
@@ -45,6 +49,9 @@ select {
 }
 
 @media screen and (max-width: 500px) {
+    .summary-filters {
+        text-align: left;
+    }
 
     .category-filter-label {
         font-size: 12px;
@@ -52,6 +59,9 @@ select {
 
     .summary-category-filter {
         display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
     }
 
     .search-filter-label {
@@ -60,5 +70,8 @@ select {
 
     .summary-search-filter {
         display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
     }
 }

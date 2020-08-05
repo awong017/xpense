@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import SummaryNav from '../SummaryNav/summaryNav';
 import SummaryFilters from '../SummaryFilters/summaryFilters';
 import SummaryList from '../SummaryList/summaryList';
-import Home from '../Home/home';
 import './summary.css';
 
 class Summary extends Component {

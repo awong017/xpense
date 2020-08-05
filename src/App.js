@@ -3,7 +3,6 @@ import {Route, withRouter} from 'react-router-dom';
 import Landing from './Landing/landing';
 import Login from './Login/login';
 import Home from './Home/home';
-import Summary from './Summary/summary';
 import AddExpense from './AddExpense/addExpense';
 import Profile from './Profile/profile';
 import NewProfile from './NewProfile/newProfile';
