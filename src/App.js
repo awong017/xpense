@@ -114,7 +114,7 @@ class App extends Component {
           })
 
       this.addCategory(category);
-      this.props.history.push('/summary');
+      this.props.history.push('/home');
     }
   }
 
