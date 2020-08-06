@@ -1,18 +1,21 @@
 .summary-list {
     margin-top: 48px;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     background-color: lightskyblue;
     color: white;
     border-radius: 50px;
+    width: 70%;
 }
 
 .summary-expenses {
     display: grid;
-    grid-template-columns: 15% 20% 30% 20% 10% 5%;
+    grid-template-columns: 10% 15% 35% 20% 10% 5%;
     list-style: none;
     text-decoration: underline;
     padding-left: 0px;
     margin-bottom: 0px;
+    margin-left: 48px;
 }
 
 .summary-list-item {
@@ -20,10 +23,14 @@
     margin-bottom: 16px;
 }
 
+.summary-item-group {
+    margin-left: 48px;
+}
+
 @media screen and (max-width: 1024px) {
 
     .summary-expenses {
-        grid-template-columns: 15% 40% 20% 15% 10%;
+        grid-template-columns: 15% 30% 30% 15% 10%;
     }
 
     .description-list-item {

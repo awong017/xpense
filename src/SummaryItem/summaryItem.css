@@ -1,6 +1,6 @@
 .summary-item {
     display: grid;
-    grid-template-columns: 15% 20% 30% 20% 10% 5%;
+    grid-template-columns: 10% 15% 35% 20% 10% 5%;
     font-size: 75%;
     list-style: none;
     padding-left: 0px;
@@ -32,7 +32,7 @@
 @media screen and (max-width: 1024px) {
 
     .summary-item {
-        grid-template-columns: 15% 40% 20% 15% 10%;
+        grid-template-columns: 15% 30% 30% 15% 10%;
     }
 
     .description-detail {
