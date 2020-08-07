@@ -18,6 +18,7 @@ class App extends Component {
     passwordError: "",
     currentUser: {},
     expenses: [],
+    dateError: "",
     nameError: "",
     descriptionError: "",
     costError: "",
@@ -38,10 +39,15 @@ class App extends Component {
   // Method for adding an expense to the expense summary. Used in
   // the AddExpense component.
 
-  handleAddExpense = (event, name, description, cost, category) => {
+  handleAddExpense = (event, date, name, description, cost, category) => {
     event.preventDefault();
 
-    if(!name) {
+    if(!date) {
+      this.setState({
+        dateError: "Please provide a date"
+      })
+    }
+    else if(!name) {
       this.setState({
         nameError: "Please provide a name"
       })
@@ -56,6 +62,11 @@ class App extends Component {
         costError: "Please provide a cost"
       })
     }
+    else if(isNaN(cost)) {
+      this.setState({
+        costError: "Please provide a valid cost in USD"
+      })
+    }
     else if(!category) {
       this.setState({
         categoryError: "Please provide a category"
@@ -64,6 +75,7 @@ class App extends Component {
     else
     {
       this.setState({
+        dateError: "",
         nameError: "",
         descriptionError: "",
         costError: "",
@@ -73,7 +85,7 @@ class App extends Component {
       const newCost = Number(cost).toFixed(2);
       const newExpense = {
         id: uuid(),
-        date: Date.now(),
+        date: new Date(date).getTime(),
         name: name,
         description: description,
         cost: parseFloat(newCost),
@@ -87,7 +99,7 @@ class App extends Component {
 
       const postExpense = {
         id: uuid(),
-        date: Date.now(),
+        date: new Date(date).getTime(),
         name: name,
         description: description,
         cost: parseFloat(newCost),
@@ -373,6 +385,11 @@ class App extends Component {
         budgetError: "Please input a desired budget"
       })
     }
+    else if(isNaN(budgetInput)) {
+      this.setState({
+        budgetError: "Please provide a valid desired budget"
+      })
+    }
     else if(!timeFrame) {
       this.setState({
         budgetError: "",
@@ -451,6 +468,11 @@ class App extends Component {
     if(!budgetInput) {
       this.setState({
         budgetError: "Please input a desired budget"
+      })
+    }
+    else if(isNaN(budgetInput)) {
+      this.setState({
+        budgetError: "Please provide a valid desired budget"
       })
     }
     else if(!timeFrame) {
@@ -691,6 +713,7 @@ class App extends Component {
       handleSignUp: this.handleSignUp,
       handleLogin: this.handleLogin,
       expenses: this.state.expenses,
+      dateError: this.state.dateError,
       nameError: this.state.nameError,
       descriptionError: this.state.descriptionError,
       costError: this.state.costError,

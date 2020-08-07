@@ -18,10 +18,12 @@ class SummaryList extends Component {
         }
     }
 
+    sortExpenses = (expenses) => {
+        return expenses.sort((a,b) => b.date - a.date)
+    }
+
     render() {
-
         const { currentCategory, filteredExpenses } = this.context;
-
         return (
             <div className="summary-list">
                 <ul className="summary-expenses">
@@ -32,7 +34,7 @@ class SummaryList extends Component {
                     <li className="summary-list-item">Amount</li>
                 </ul>
                 <div className="summary-item-group">
-                    {this.listedExpenses(currentCategory, filteredExpenses).map(expense => 
+                    {this.sortExpenses(this.listedExpenses(currentCategory, filteredExpenses)).map(expense => 
                         <SummaryItem 
                             key={expense.id}
                             id={expense.id}
