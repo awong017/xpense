@@ -42,10 +42,15 @@
 
     .summary-expenses {
         grid-template-columns: 25% 35% 25% 15%;
+        margin-left: 24px;
     }
 
     .summary-list-item {
         font-size: 14px;
+    }
+
+    .summary-item-group {
+        margin-left: 24px;
     }
 
     .category-list-item {
