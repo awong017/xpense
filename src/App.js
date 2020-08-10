@@ -98,13 +98,13 @@ class App extends Component {
       })
 
       const postExpense = {
-        id: uuid(),
-        date: new Date(date).getTime(),
-        name: name,
-        description: description,
-        cost: parseFloat(newCost),
-        category: category,
-        userid: this.state.currentUser.id
+        id: newExpense.id,
+        date: newExpense.date,
+        name: newExpense.name,
+        description: newExpense.description,
+        cost: newExpense.cost,
+        category: newExpense.category,
+        userid: newExpense.userID
       }
 
       const url = config.API_ENDPOINT + '/api/expenses';
