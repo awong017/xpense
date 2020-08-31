@@ -4,6 +4,7 @@
 
 .summary-title {
     text-align: center;
+    color: #4A4A4C;
 }
 
 @media screen and (max-width: 500px) {
