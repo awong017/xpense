@@ -2,7 +2,7 @@ An application that allows the user to manage and track their daily expenses.
 
 To get started, you may use the following login below.
 
-username: guest
+username: guest <br />
 password: welcome
 
 Here is a list of all the application pages and their functions:
