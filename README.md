@@ -30,5 +30,3 @@ Here is a list of all the application pages and their functions:
 3) Add Expense
     - Can be accessed by clicking on the "Add Expense" link on the nav bar
     - User can add an expense
-
-
